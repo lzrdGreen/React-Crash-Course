@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3: Lists and Conditional Rendering</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>React Crash Course</h1>
+    <h1>React Basics</h1>
+  </header>
+
+  <main>
+    <h2>Lesson 3: Lists and Conditional Rendering</h2>
+    <h3>Objective</h3>
+    <p>Work with dynamic data and render it conditionally.</p>
+
+    <h3>Topics Covered</h3>
+    <ul>
+      <li>Rendering Lists: Using <code>.map()</code> to render arrays as components.</li>
+      <li>Keys in React: Importance of unique keys for list items.</li>
+      <li>Conditional Rendering: Using if or ternary operators to show/hide elements.</li>
+    </ul>
+
+    <h3>Hands-On</h3>
+    <ol>
+      <li>Display a list of items dynamically.</li>
+      <li>Show a message based on a condition (e.g., "No items found").</li>
+    </ol>
+
+    <h3>Example Code</h3>
+    <pre>
+function ItemList({ items }) {
+  return (
+    &lt;div&gt;
+      {items.length === 0 ? (
+        &lt;p&gt;No items found!&lt;/p&gt;
+      ) : (
+        &lt;ul&gt;
+          {items.map((item, index) => (
+            &lt;li key={index}&gt;{item}&lt;/li&gt;
+          ))}
+        &lt;/ul&gt;
+      )}
+    &lt;/div&gt;
+  );
+}
+
+function App() {
+  const items = ["Learn React", "Practice JSX", "Build Components"];
+  return &lt;ItemList items={items} /&gt;;
+}
+
+export default App;
+    </pre>
+
+    <div id="quiz-container">
+      <h3>Quizzes</h3>
+      <p>Create a component that renders "All items are completed!" if all tasks are completed; otherwise, display the incomplete tasks.</p>
+      <textarea id="lesson3-code" rows="6" cols="50"></textarea>
+      <button onclick="checkLesson3()">Check</button>
+      <p id="lesson3-result"></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <a href="https://www.linkedin.com/in/alexander-parshakov/" style="color: white; text-decoration: none;">O.Parshakov</a></p>
+   
+    <p>Dream it. Build it.</p>
+  </footer>
+
+  <script src="r3.js"></script>
+</body>
+</html>

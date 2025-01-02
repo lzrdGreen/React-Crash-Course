@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1: Functions & ES6+ Syntax</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>JavaScript Essentials for React</h1>    
+  </header>
+
+  <h2>Lesson 1: Functions & ES6+ Syntax</h2>
+
+  <main>
+    <section>
+      <h3>Why Learn Modern JavaScript?</h3>
+      <p>React heavily uses modern JavaScript, especially ES6+ syntax, for functional components and hooks.</p>      
+    </section>
+
+    <section>
+      <h3>What You'll Learn</h3>
+      <ul>
+        <li>Arrow Functions</li>
+        <li>Default Parameters</li>
+        <li>Template Literals</li>
+      </ul>
+      <h4>Arrow Functions</h4>
+      <p>A shorter syntax for writing functions.</p>
+      <p>Example: </p>
+        <pre>const add = (a, b) => a + b; // Returns the sum of a and b</pre>
+      <p>Key Features: No binding of this, shorter code, and implicit return for single-line functions.</p>
+      <h4>Default Parameters</h4>
+      <p>Set default values for function parameters when no arguments are provided.</p>
+      <p>Example: </p>
+      <pre>
+        function greet(name = "Guest") {
+          return `Hello, ${name}`;
+        }
+      </pre>
+        
+      <h4>Template Literals</h4>
+      <p>Use backticks (``) for strings that allow embedding variables and expressions.</p>
+      <p>Example:</p>
+      <pre>
+        const name = "John";
+        console.log(`Hello, ${name}!`);
+      </pre>
+    </section>
+
+    <section>
+      <h3>Interactive Example</h3>
+      <p>Original Function:</p>
+      <pre>
+      function multiply(x, y) {
+        return x * y;
+      }
+      </pre>
+      <p><strong>Task:</strong> Rewrite the above function as an arrow function and test it in your browser's console!</p>
+    </section>
+
+    <section>
+      <h3>Quizzes</h3>
+      <ol>
+        <li>
+          Convert:
+          <pre>function square(num){return num * num;}</pre>
+          to an arrow function.
+        </li>
+        <li>
+          Create a function using default parameters to greet a person by name, or say "Hello there!" if no name is provided.
+        </li>
+        <li>
+          Use a template literal to create a string: 
+          <pre>"The product of 5 and 10 is [result]".</pre>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h3>Submit Your Answers</h3>
+      <p>Enter your solutions below and click "Check" to validate your answers:</p>
+      <div id="quiz-container">
+        <div class="quiz-item">
+          <label for="quiz1">1. Arrow function for square:</label>
+          <input type="text" id="quiz1">
+          <button onclick="checkQuiz1()">Check</button>
+          <p id="quiz1-result"></p>
+        </div>
+
+        <div class="quiz-item">
+          <label for="quiz2">2. Function with default parameters:</label>
+          <input type="text" id="quiz2">
+          <button onclick="checkQuiz2()">Check</button>
+          <p id="quiz2-result"></p>
+        </div>
+
+        <div class="quiz-item">
+          <label for="quiz3">3. Template literal:</label>
+          <input type="text" id="quiz3">
+          <button onclick="checkQuiz3()">Check</button>
+          <p id="quiz3-result"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <a href="https://www.linkedin.com/in/alexander-parshakov/" style="color: white; text-decoration: none;">O.Parshakov</a></p>
+   
+    <p>Dream it. Build it.</p>
+  </footer>
+
+  <script src="script-l1.js"></script>
+</body>
+</html>

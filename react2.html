@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2: State and Event Handling</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>React Crash Course</h1>
+    <h1>React Basics</h1>
+  </header>
+
+  <main>
+    <h2>Lesson 2: State and Event Handling</h2>
+    <h3>Objective</h3>
+    <p>Manage component state and handle user interactions.</p>
+
+    <h3>Topics Covered</h3>
+    <ul>
+      <li>useState Hook: Managing state in functional components.</li>
+      <li>Event Handling: Handling user input, button clicks, etc.</li>
+      <li>Two-Way Binding: Using state to track and display user input.</li>
+    </ul>
+
+    <h3>Hands-On</h3>
+    <ol>
+      <li>Create a simple counter app.</li>
+      <li>Add an input field that updates dynamically as the user types.</li>
+    </ol>
+
+    <h3>Example Code</h3>
+    <pre>
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={() => setCount(count + 1)}&gt;Increment&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+function App() {
+  return &lt;Counter /&gt;;
+}
+
+export default App;
+    </pre>
+
+    <div id="quiz-container">
+      <h3>Quizzes</h3>
+      <p>Create a counter component that decreases count when a button is clicked.</p>
+      <textarea id="lesson2-code" rows="6" cols="50"></textarea>
+      <button onclick="checkLesson2()">Check</button>
+      <p id="lesson2-result"></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <a href="https://www.linkedin.com/in/alexander-parshakov/" style="color: white; text-decoration: none;">O.Parshakov</a></p>
+   
+    <p>Dream it. Build it.</p>
+  </footer>
+
+  <script src="r2.js"></script>
+</body>
+</html>

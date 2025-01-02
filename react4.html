@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4: Basic Routing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>React Crash Course</h1>
+    <h1>React Basics</h1>
+  </header>
+
+  <main>
+    <h2>Lesson 4: Basic Routing</h2>
+    <h3>Objective</h3>
+    <p>Navigate between pages in a React app.</p>
+
+    <h3>Topics Covered</h3>
+    <ul>
+      <li>React Router: Install and use <code>react-router-dom</code>.</li>
+      <li>Setting Up Routes: Create links and switch between pages.</li>
+    </ul>
+
+    <h3>Hands-On</h3>
+    <ol>
+      <li>Add a Home page and an About page.</li>
+      <li>Use <code>BrowserRouter</code>, <code>Routes</code>, and <code>Link</code>.</li>
+    </ol>
+
+    <h3>Example Code</h3>
+    <pre>
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+function Home() {
+  return &lt;h1&gt;Home Page&lt;/h1&gt;;
+}
+
+function About() {
+  return &lt;h1&gt;About Page&lt;/h1&gt;;
+}
+
+function App() {
+  return (
+    &lt;Router&gt;
+      &lt;nav&gt;
+        &lt;Link to="/"&gt;Home&lt;/Link&gt;
+        &lt;Link to="/about"&gt;About&lt;/Link&gt;
+      &lt;/nav&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={<Home />} /&gt;
+        &lt;Route path="/about" element={<About />} /&gt;
+      &lt;/Routes&gt;
+    &lt;/Router&gt;
+  );
+}
+
+export default App;
+    </pre>
+
+    <div id="quiz-container">
+      <h3>Quizzes</h3>
+      <p>Create a "Contact" page and add a route to navigate to it using a link.</p>
+      <textarea id="lesson4-code" rows="6" cols="50"></textarea>
+      <button onclick="checkLesson4()">Check</button>
+      <p id="lesson4-result"></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <a href="https://www.linkedin.com/in/alexander-parshakov/" style="color: white; text-decoration: none;">O.Parshakov</a></p>
+   
+    <p>Dream it. Build it.</p>
+  </footer>
+
+  <script src="r4.js"></script>
+</body>
+</html>

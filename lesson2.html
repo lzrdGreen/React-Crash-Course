@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2: DOM Manipulation Basics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>React Crash Course</h1>
+    <h1>JavaScript Essentials for React</h1>    
+  </header>
+
+  <h2>Lesson 2: DOM Manipulation Basics</h2>
+
+  <main>
+    <section>
+      <h3>Why Learn DOM Manipulation?</h3>
+      <p>While React abstracts DOM handling, understanding DOM manipulation helps learners see what React simplifies.</p>
+    </section>
+
+    <section>
+      <h3>What You'll Learn</h3>
+      <ul>
+        <li>Selecting elements</li>
+        <li>Adding and removing elements</li>
+        <li>Event handling</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Interactive Example</h3>
+      <p>Task: Create a button. When clicked, change the text of a paragraph element with the ID "myParagraph" to "Button Clicked!".</p>
+      <p id="myParagraph">Initial text.</p>
+      <button id="myButton">Click me</button>
+    </section>
+
+    <section>
+      <h3>Quizzes</h3>
+      <ol>
+        <li>How do you select an element with the ID "container"?</li>
+        <li>Write the code to add a new `<li>` element with the text "New Item" to a `<ul>` with the ID "myList".</li>
+        <li>How do you attach a click event listener to a button with the ID "submitBtn"?</li>
+      </ol>
+      <div id="quiz-container">
+        <div class="quiz-item">
+          <label for="quiz1">1. Select an element:</label>
+          <input type="text" id="quiz1">
+          <button onclick="checkQuiz2_1()">Check</button>
+          <p id="quiz1-result"></p>
+        </div>
+
+        <div class="quiz-item">
+          <label for="quiz2">2. Add a new list item:</label>
+          <input type="text" id="quiz2">
+          <button onclick="checkQuiz2_2()">Check</button>
+          <p id="quiz2-result"></p>
+        </div>
+
+        <div class="quiz-item">
+          <label for="quiz3">3. Attach event listener:</label>
+          <input type="text" id="quiz3">
+          <button onclick="checkQuiz2_3()">Check</button>
+          <p id="quiz3-result"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <a href="https://www.linkedin.com/in/alexander-parshakov/" style="color: white; text-decoration: none;">O.Parshakov</a></p>
+   
+    <p>Dream it. Build it.</p>
+  </footer>
+
+  <script src="script-l2.js"></script>
+</body>
+</html>

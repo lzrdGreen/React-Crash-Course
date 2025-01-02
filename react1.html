@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1: React Basics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>React Crash Course</h1>
+    <h1>React Basics</h1>
+  </header>
+
+  <main>
+    <h2>Lesson 1: React Basics</h2>
+    <h3>Objective</h3>
+    <p>Understand the core building blocks of React.</p>
+
+    <h3>Topics Covered</h3>
+    <ul>
+      <li>What is React? Component-based UI library.</li>
+      <li>JSX: Writing HTML-like syntax in JavaScript.</li>
+      <li>Components: Functional vs. Class components (focus on Functional).</li>
+      <li>Props: Passing data between components.</li>
+    </ul>
+
+    <h3>Hands-On</h3>
+    <ol>
+      <li>Create a basic App component.</li>
+      <li>Add a child component, pass data via props, and display it.</li>
+    </ol>
+
+    <h3>Example Code</h3>
+    <pre>
+        function Welcome(props) {
+        return &lt;h1&gt;Hello, {props.name}!&lt;/h1&gt;;
+        }
+
+        function App() {
+        return &lt;Welcome name="React Learner" /&gt;;
+        }
+
+        export default App;
+    </pre>
+
+    <div id="quiz-container">
+      <h3>Quizzes</h3>
+      <p>Write the code for a component that displays "Welcome to React!" using props.</p>
+      <textarea id="lesson1-code" rows="6" cols="50"></textarea>
+      <button onclick="checkLesson1()">Check</button>
+      <p id="lesson1-result"></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <a href="https://www.linkedin.com/in/alexander-parshakov/" style="color: white; text-decoration: none;">O.Parshakov</a></p>
+   
+    <p>Dream it. Build it.</p>
+  </footer>
+
+  <script src="r1.js"></script>
+</body>
+</html>

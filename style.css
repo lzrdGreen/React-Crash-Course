@@ -1,0 +1,72 @@
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 50px;
+    padding: 0;
+  }
+  
+  
+header {
+    background: #2166ac;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+  }
+  
+main {
+    padding: 20px;
+  }
+  
+h2, h3, h4 {
+    color: #053061;
+  }
+  
+pre {
+    background: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ddd;
+    overflow-x: auto;
+  }
+
+  code {
+    font-family: monospace; /* Use a monospace font for code */
+    font-size: 16px; /* Adjust font size as needed */
+    background-color: #f0f0f0; /* Set a light background color */
+    padding: 2px 4px; /* Add some padding for better readability */
+    border-radius: 3px; /* Add rounded corners */
+  }
+  
+#quiz-container {
+    margin-top: 20px;
+  }
+  
+.quiz-item {
+    margin-bottom: 20px;
+  }
+  
+  
+button {
+    background-color: #d1e5f0;
+    color: #000;
+    border: 2px solid #2166ac;
+    cursor: pointer;
+    padding: 5px 9px;
+    border-radius: 3px;
+}
+  
+button:hover {
+    background: #4393c3;
+  }
+
+footer {
+    background-color: #2166ac;
+    height: 95px;
+    padding: 10px;
+}
+footer p {
+    font-size: 20px;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #fff;
+    text-align: center;
+}
+  
