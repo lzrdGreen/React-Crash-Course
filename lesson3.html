@@ -43,7 +43,35 @@
         <li>Use the <code>map</code> method to create a new array containing the squares of each number in the array <code>[1, 2, 3, 4]</code>.</li>
         <li>How do you create a shallow copy of an array using the spread operator?</li>
       </ol>
+      <h3>Submit Your Answers</h3>
+      <div id="quiz-container">
+        <div class="quiz-item">
+          <label for="quiz1">1. Extract the city property:</label>
+          <input type="text" id="quiz1">
+          <button onclick="checkQuiz3_1()">Check</button>
+          <button onclick="revealAnswer('quiz1')">Reveal</button>
+          <p id="quiz1-result"></p>
+        </div>
+    
+        <div class="quiz-item">
+          <label for="quiz2">2. Square numbers using map:</label>
+          <input type="text" id="quiz2">
+          <button onclick="checkQuiz3_2()">Check</button>
+          <button onclick="revealAnswer('quiz2')">Reveal</button>
+          <p id="quiz2-result"></p>
+        </div>
+    
+        <div class="quiz-item">
+          <label for="quiz3">3. Shallow copy with spread operator:</label>
+          <input type="text" id="quiz3">
+          <button onclick="checkQuiz3_3()">Check</button>
+          <button onclick="revealAnswer('quiz3')">Reveal</button>
+          <p id="quiz3-result"></p>
+        </div>
+      </div>
     </section>
+    
+    <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
   </main>
 
   <footer>

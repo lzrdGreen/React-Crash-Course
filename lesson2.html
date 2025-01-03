@@ -38,16 +38,21 @@
 
     <section>
       <h3>Quizzes</h3>
+      
       <ol>
-        <li>How do you select an element with the ID "container"?</li>
-        <li>Write the code to add a new `<li>` element with the text "New Item" to a `<ul>` with the ID "myList".</li>
-        <li>How do you attach a click event listener to a button with the ID "submitBtn"?</li>
+          <li>How do you select an element with the ID "container"? (Hint: Write the JavaScript code to select the element with the ID "container" and store it in a variable called <code>containerElement</code>.)</li>
+          <li>Write the JavaScript code to add a new <code>&lt;li&gt;</code> element with the text "New Item" to a <code>&lt;ul&gt;</code> with the ID "myList". Then, add the class 'highlight' to the newly created <code>&lt;li&gt;</code> element.</li>
+          <li>How do you attach a click event listener to a button with the ID "submitBtn"? (Hint: Write the JavaScript code to attach a click event listener to a button with the ID "submitBtn". When the button is clicked, display an alert box that says 'Button Clicked!'.)</li>
       </ol>
+      
+
+      <h3>Submit Your Answers</h3>
       <div id="quiz-container">
         <div class="quiz-item">
           <label for="quiz1">1. Select an element:</label>
           <input type="text" id="quiz1">
           <button onclick="checkQuiz2_1()">Check</button>
+          <button onclick="revealAnswer('quiz1')">Reveal</button>
           <p id="quiz1-result"></p>
         </div>
 
@@ -55,6 +60,7 @@
           <label for="quiz2">2. Add a new list item:</label>
           <input type="text" id="quiz2">
           <button onclick="checkQuiz2_2()">Check</button>
+          <button onclick="revealAnswer('quiz2')">Reveal</button>
           <p id="quiz2-result"></p>
         </div>
 
@@ -62,10 +68,12 @@
           <label for="quiz3">3. Attach event listener:</label>
           <input type="text" id="quiz3">
           <button onclick="checkQuiz2_3()">Check</button>
+          <button onclick="revealAnswer('quiz3')">Reveal</button>
           <p id="quiz3-result"></p>
         </div>
       </div>
     </section>
+    <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
   </main>
 
   <footer>

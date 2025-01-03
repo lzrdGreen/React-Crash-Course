@@ -27,11 +27,35 @@
         <li>Default Parameters</li>
         <li>Template Literals</li>
       </ul>
-      <h4>Arrow Functions</h4>
-      <p>A shorter syntax for writing functions.</p>
-      <p>Example: </p>
-        <pre>const add = (a, b) => a + b; // Returns the sum of a and b</pre>
-      <p>Key Features: No binding of this, shorter code, and implicit return for single-line functions.</p>
+      <section>
+        <h3>Arrow Functions</h3>
+        <p>A shorter syntax for writing functions.</p>
+        <pre><code>const add = (a, b) => a + b; // Returns the sum of a and b</code></pre>
+        <p>Key Features: <em>Lexical <code>this</code> binding</em>: Arrow functions inherit the <code>this</code> value from the surrounding (enclosing) scope. Shorter code, and implicit return for single-line functions.</p>
+        <h4><code>this</code> in Action</h4>
+        <p>Here's an example demonstrating how <code>this</code> behaves differently in regular and arrow functions:</p>
+        <pre><code class="language-javascript">
+          const myObject = {
+            value: 42,
+            regularFunction: function() {
+              console.log("Regular function this:", this.value);
+            },
+            arrowFunction: () => { // Note the arrow function here as well
+              console.log("Arrow function this:", this.value);
+            },
+          };
+          
+          myObject.regularFunction(); // Output: 42
+          myObject.arrowFunction(); // Output: undefined (in strict mode), or something else like window in non-strict mode. This is the key difference!
+          
+          const anotherObject = {value:100}
+          anotherObject.regularFunction = myObject.regularFunction;
+          anotherObject.regularFunction(); // Output: 100
+          anotherObject.arrowFunction = myObject.arrowFunction;
+          anotherObject.arrowFunction(); // Output: undefined (in strict mode), or something else like window in non-strict mode. This is the key difference!
+        </code></pre>        
+    </section>
+
       <h4>Default Parameters</h4>
       <p>Set default values for function parameters when no arguments are provided.</p>
       <p>Example: </p>
@@ -107,7 +131,8 @@
           <p id="quiz3-result"></p>
         </div>
       </div>
-    </section>    
+    </section>
+    <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>   
   </main>
 
   <footer>

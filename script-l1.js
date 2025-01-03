@@ -4,7 +4,7 @@ function checkQuiz1() {
   const result = userAnswer === correctAnswer ? "Correct!" : "Try again!";
   const resultElement = document.getElementById('quiz1-result');
   resultElement.textContent = result;
-  resultElement.style.color = userAnswer === correctAnswer ? "green" : "red";
+  resultElement.style.color = userAnswer === correctAnswer ? "#66c2a5" : "red";
 }
 
 function checkQuiz2() {
@@ -13,7 +13,7 @@ function checkQuiz2() {
   const result = userAnswer === correctAnswer ? "Correct!" : "Try again!";
   const resultElement = document.getElementById('quiz2-result');
   resultElement.textContent = result;
-  resultElement.style.color = userAnswer === correctAnswer ? "green" : "red";
+  resultElement.style.color = userAnswer === correctAnswer ? "#66c2a5" : "red";
 }
 
 function checkQuiz3() {
@@ -22,12 +22,12 @@ function checkQuiz3() {
   const result = userAnswer === correctAnswer ? "Correct!" : "Try again!";
   const resultElement = document.getElementById('quiz3-result');
   resultElement.textContent = result;
-  resultElement.style.color = userAnswer === correctAnswer ? "green" : "red";
+  resultElement.style.color = userAnswer === correctAnswer ? "#66c2a5" : "red";
 }
 
 // New function to reveal the correct answer
 function revealAnswer(quizId, correctAnswer) {
   const resultElement = document.getElementById(`${quizId}-result`);
   resultElement.textContent = `The correct answer is: ${correctAnswer}`;
-  resultElement.style.color = "blue";
+  resultElement.style.color = "#3288bd";  
 }

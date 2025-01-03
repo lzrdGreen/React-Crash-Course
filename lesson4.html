@@ -34,7 +34,35 @@
         <li>What does the <code>async</code> keyword do?</li>
         <li>How do you handle errors in an async/await function?</li>
       </ol>
+      <h3>Submit Your Answers</h3>
+      <div id="quiz-container">
+        <div class="quiz-item">
+          <label for="quiz1">1. Purpose of <code>.then()</code>:</label>
+          <input type="text" id="quiz1">
+          <button onclick="checkQuiz4_1()">Check</button>
+          <button onclick="revealAnswer('quiz1')">Reveal</button>
+          <p id="quiz1-result"></p>
+        </div>
+    
+        <div class="quiz-item">
+          <label for="quiz2">2. Purpose of <code>async</code> keyword:</label>
+          <input type="text" id="quiz2">
+          <button onclick="checkQuiz4_2()">Check</button>
+          <button onclick="revealAnswer('quiz2')">Reveal</button>
+          <p id="quiz2-result"></p>
+        </div>
+    
+        <div class="quiz-item">
+          <label for="quiz3">3. Handling errors in async/await:</label>
+          <input type="text" id="quiz3">
+          <button onclick="checkQuiz4_3()">Check</button>
+          <button onclick="revealAnswer('quiz3')">Reveal</button>
+          <p id="quiz3-result"></p>
+        </div>
+      </div>
     </section>
+    
+    <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
   </main>
 
   <footer>
