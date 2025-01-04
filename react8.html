@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 8: </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>React Crash Course</h1>
+    <h1>React Basics</h1>
+  </header>
+
+<main>
+  <h2>Lesson 8: Forms, Validation, and Controlled Components</h2>
+  <h3>Objective</h3>
+  <p>Master form handling, validation, and controlled components in React.</p>
+  
+  <h3>Topics Covered</h3>
+  <ul>
+    <li>Handling forms in React.</li>
+    <li>Controlled vs. uncontrolled components.</li>
+    <li>Form validation techniques.</li>
+  </ul>
+
+  <h3>Hands-On</h3>
+  <p>Create a login form with input validation.</p>
+
+  <h3>Example Code</h3>
+  <pre>
+    <code>
+      import { useState } from "react";
+
+      function LoginForm() {
+        const [username, setUsername] = useState("");
+        const [password, setPassword] = useState("");
+        const [error, setError] = useState("");
+
+        const handleSubmit = (event) => {
+          event.preventDefault();
+          if (!username || !password) {
+            setError("Both fields are required!");
+          } else {
+            setError("");
+            console.log("Login successful!");
+          }
+        };
+
+        return (
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label>Username:</label>
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>Password:</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            {error && <p style={{ color: "red" }}>{error}</p>}
+            <button type="submit">Login</button>
+          </form>
+        );
+      }
+
+      export default LoginForm;
+    </code>
+  </pre>
+
+  
+  <div id="quiz-container">
+    <h3>Quizzes</h3>
+    <p>Create a signup form that validates email and password strength:</p>
+    <ul>
+      <li><p>Validate email format using a regular expression.</p></li>
+      <li><p>Check password length to ensure it is at least 8 characters.</p></li>
+      <li><p>Display error messages when validation fails.</p></li>
+      <li><p>Alert "Signup successful!" upon valid form submission.</p></li>
+    </ul>
+    <textarea id="lesson8-code" rows="6" cols="50"></textarea>
+    <button onclick="checkLesson8()">Check</button>
+    <button onclick="revealAnswer8()">Reveal</button>
+    <p id="lesson8-result"></p>
+  </div>
+  
+</main>
+
+<footer>
+  <p>&copy; 2025 <a href="https://www.linkedin.com/in/alexander-parshakov/" style="color: white; text-decoration: none;">O.Parshakov</a></p>
+ 
+  <p>Dream it. Build it.</p>
+</footer>
+<script src="r8.js"></script>
+</body>
+</html>

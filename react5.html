@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 5: React's Virtual DOM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>React Crash Course</h1>
+    <h1>React Basics</h1>
+  </header>
+
+<main>
+    <h2>Lesson 5: React's Virtual DOM</h2>
+  <h3>Objective</h3>
+  <p>Understand the concept of the Virtual DOM and its role in optimizing UI updates.</p>
+  
+  <h3>Topics Covered</h3>
+  <ul>
+    <li>How the Virtual DOM works.</li>
+    <li>React's efficiency compared to traditional DOM manipulation.</li>
+    <li>Importance of the Virtual DOM in React's performance.</li>
+  </ul>
+
+  <h3>Hands-On</h3>
+  <p>Create a component that updates a list dynamically while showcasing React's efficient rendering.</p>
+
+  <h3>Example Code</h3>
+  <pre>
+    <code>
+      import { useState } from "react";
+
+      function DynamicList() {
+        const [items, setItems] = useState([]);
+
+        const addItem = () => {
+          const newItem = `Item ${items.length + 1}`;
+          setItems([...items, newItem]);
+        };
+
+        return (
+          <div>
+            <button onClick={addItem}>Add Item</button>
+            <ul>
+              {items.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      }
+
+      export default DynamicList;
+    </code>
+  </pre> 
+  
+
+  <div id="quiz-container">
+    <h3>Quizzes</h3>
+    <p>Create a component that updates only a specific list item instead of re-rendering the entire list.</p>
+    <textarea id="lesson5-code" rows="6" cols="50"></textarea>
+    <button onclick="checkLesson5()">Check</button>
+    <button onclick="revealAnswer5()">Reveal</button>
+    <p id="lesson5-result"></p>
+</div>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 <a href="https://www.linkedin.com/in/alexander-parshakov/" style="color: white; text-decoration: none;">O.Parshakov</a></p>
+ 
+  <p>Dream it. Build it.</p>
+</footer>
+
+  <script src="r5.js"></script>
+</body>
+</html>

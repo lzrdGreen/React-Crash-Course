@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 10: Error Handling</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>React Crash Course</h1>
+    <h1>React Basics</h1>
+  </header>
+
+<main>
+  <h2>Lesson 10: Error Handling</h2>
+  <h3>Objective</h3>
+  <p>Understand error boundaries and techniques for graceful degradation in React.</p>
+  
+  <h3>Topics Covered</h3>
+  <ul>
+    <li>Using error boundaries to catch component errors.</li>
+    <li>Implementing fallback UI for better user experience.</li>
+  </ul>
+
+  <h3>Hands-On</h3>
+  <p>Create a component with an error boundary that displays a fallback UI when a child component crashes.</p>
+
+  <h3>Example Code</h3>
+  <pre>
+    <code>
+      import React from "react";
+
+      class ErrorBoundary extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { hasError: false };
+        }
+
+        static getDerivedStateFromError(error) {
+          return { hasError: true };
+        }
+
+        componentDidCatch(error, errorInfo) {
+          console.error("ErrorBoundary caught an error", error, errorInfo);
+        }
+
+        render() {
+          if (this.state.hasError) {
+            return <h1>Something went wrong.</h1>;
+          }
+          return this.props.children;
+        }
+      }
+
+      function BuggyComponent() {
+        throw new Error("I crashed!");
+      }
+
+      function App() {
+        return (
+          <ErrorBoundary>
+            <BuggyComponent />
+          </ErrorBoundary>
+        );
+      }
+
+      export default App;
+    </code>
+  </pre>
+
+  
+  <div id="quiz-container">
+    <h3>Quizzes</h3>
+    <p>Create an error boundary that logs errors and displays a retry button. (Implement an <code>ErrorBoundary</code> class component using React's error-handling lifecycle methods.)</p>    
+    <textarea id="lesson10-code" rows="6" cols="50"></textarea>
+    <button onclick="checkLesson10()">Check</button>
+    <button onclick="revealAnswer10()">Reveal</button>
+    <p id="lesson10-result"></p>
+  </div>
+  
+</main>
+
+<footer>
+  <p>&copy; 2025 <a href="https://www.linkedin.com/in/alexander-parshakov/" style="color: white; text-decoration: none;">O.Parshakov</a></p>
+ 
+  <p>Dream it. Build it.</p>
+</footer>
+<script src="r10.js"></script>
+</body>
+</html>

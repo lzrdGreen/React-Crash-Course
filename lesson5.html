@@ -17,14 +17,54 @@
   <main>
     <section>
       <h3>Why Learn JSX-Friendly Features?</h3>
-      <p>JSX (JavaScript XML) is the foundation of React. Understanding JSX quirks and React-specific nuances is key.</p>
+      <p>JSX (JavaScript XML), a technology (syntax extension to JavaScript) for embedding HTML directly into the JavaScript, is a core part of React. Babel converts JSX code into regular JavaScript that the browser can interpret. Understanding JSX quirks and React-specific nuances is key.</p>
+    </section>
+
+    <section>
+      <h3>What You'll Learn</h3>
+      <ul>
+          <li>
+              <p>
+                  <strong>Expressions in JSX:</strong> JSX allows you to embed JavaScript expressions within curly braces <code>{}</code>. This is how you dynamically render values, call functions, and use variables in your JSX. For example: <code>&lt;p&gt;Hello, {name}!&lt;/p&gt;</code>.
+              </p>
+          </li>
+          <li>
+              <p>
+                  <strong>JSX Attributes:</strong> JSX attributes are similar to HTML attributes, but with some differences. You can use JavaScript expressions for attribute values within curly braces. For example: <code>&lt;img src={imageURL} alt={altText} /&gt;</code>.
+              </p>
+          </li>
+          <li>
+              <p>
+                  <strong>JSX Conditionals:</strong> You can use JavaScript conditional expressions (like ternary operators) to conditionally render elements in JSX. For example: <code>{isLoggedIn ? &lt;p&gt;Welcome!&lt;/p&gt; : &lt;p&gt;Please log in.&lt;/p&gt;}</code>.
+              </p>
+          </li>
+          <li>
+              <p>
+                  <strong>JSX Lists:</strong> When rendering lists of items in JSX, you'll typically use the <code>map()</code> method to iterate over an array and return JSX elements. Each item in the list should have a unique <code>key</code> prop. For example: <code>{items.map(item => &lt;li key={item.id}&gt;{item.name}&lt;/li&gt;)}</code>.
+              </p>
+          </li>
+           <li>
+              <p>
+                  <strong>JSX Comments:</strong> JSX uses a different syntax for comments than HTML. You use curly braces with JavaScript-style comments: <code>{/* This is a JSX comment */}</code>.
+              </p>
+          </li>
+      </ul>
     </section>
 
     <section>
       <h3>Interactive Example</h3>
-      <p>Task: Conditionally render content based on a boolean value.</p>
+      <p>Task: Conditionally render content based on a boolean value: if True - "Welcome, User!", if False - "Please log in."</p>
       <button id="toggle">Toggle Login State</button>
       <pre id="output"></pre>
+      <script>
+        let isLoggedIn = false;
+
+        document.getElementById('toggle').addEventListener('click', () => {
+          isLoggedIn = !isLoggedIn;
+          const output = isLoggedIn ? 'Welcome, User!' : 'Please log in.';
+          document.getElementById('output').textContent = output;
+        });
+      </script>
     </section>
 
     <section>

@@ -23,17 +23,53 @@
     <section>
       <h3>What You'll Learn</h3>
       <ul>
-        <li>Object destructuring</li>
-        <li>Array methods (map, filter, reduce, find)</li>
-        <li>Spread/rest operators</li>
+          <li>
+              <p>
+                  <strong>Object destructuring:</strong> This allows you to extract values from objects into distinct variables. For example, <code>const { name, age } = person;</code> extracts the <code>name</code> and <code>age</code> properties from the <code>person</code> object.
+              </p>
+          </li>
+          <li>
+              <p>
+                  <strong>Array destructuring:</strong> This allows you to extract values from arrays into distinct variables. For example, <code>const [first, second] = myArray;</code> extracts the first and second elements from the <code>myArray</code> array.
+              </p>
+          </li>        
+          <li>
+              <p>
+                  <strong>Array methods (map, filter, reduce, find):</strong> These provide powerful ways to transform and manipulate arrays. For example, <code>const doubled = numbers.map(num => num * 2);</code> creates a new array with each number doubled.
+              </p>
+          </li>
+          <li>
+              <p>
+                  <strong>Spread/rest operators:</strong> The spread operator (<code>...</code>) expands iterables (like arrays and objects) into individual elements, while the rest parameter collects remaining arguments into an array. For example, <code>const newArray = [...oldArray, newItem];</code> creates a new array by copying <code>oldArray</code> and adding <code>newItem</code>.
+              </p>
+          </li>
       </ul>
-    </section>
+  </section>
 
     <section>
       <h3>Interactive Example</h3>
       <p>Task: Filter completed tasks from an array of objects.</p>
+      <pre><code>
+        const tasks = [
+          { id: 1, title: 'Learn React', completed: true },
+          { id: 2, title: 'Build a project', completed: false },
+          { id: 3, title: 'Deploy app', completed: false },
+        ];
+      </code></pre>
       <button id="filterTasks">Filter Completed Tasks</button>
       <pre id="output"></pre>
+      <script>
+        const tasks = [
+          { id: 1, title: 'Learn React', completed: true },
+          { id: 2, title: 'Build a project', completed: false },
+          { id: 3, title: 'Deploy app', completed: false },
+        ];
+        
+        document.getElementById('filterTasks').addEventListener('click', () => {
+          const completedTasks = tasks.filter(task => task.completed);
+          document.getElementById('output').textContent = JSON.stringify(completedTasks, null, 2);
+        });
+      </script>
     </section>
 
     <section>

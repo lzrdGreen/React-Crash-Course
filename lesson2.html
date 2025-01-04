@@ -21,11 +21,23 @@
     </section>
 
     <section>
-      <h3>What You'll Learn</h3>
+      <h3>What Is This?</h3>
       <ul>
-        <li>Selecting elements</li>
-        <li>Adding and removing elements</li>
-        <li>Event handling</li>
+        <li>
+          <p>
+            <strong>Selecting elements:</strong> This involves using JavaScript methods to target specific HTML elements within the document, allowing you to interact with them. For example, <code>document.getElementById('myElement')</code> selects the element with the ID "myElement".
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Adding and removing elements:</strong> This covers how to dynamically create, insert, and delete HTML elements, enabling you to modify the structure of the web page. For example, <code>const newElement = document.createElement('div'); document.body.appendChild(newElement);</code> creates a new <code>div</code> and adds it to the <code>body</code>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Event handling:</strong> This teaches you how to respond to user interactions (like clicks, mouseovers, etc.) by attaching functions to specific events on HTML elements. For example, <code>myButton.addEventListener('click', () => alert('Button clicked!'));</code> attaches a click event listener to <code>myButton</code>.
+          </p>
+        </li>
       </ul>
     </section>
 
@@ -34,6 +46,15 @@
       <p>Task: Create a button. When clicked, change the text of a paragraph element with the ID "myParagraph" to "Button Clicked!".</p>
       <p id="myParagraph">Initial text.</p>
       <button id="myButton">Click me</button>
+      <script>
+        const myButton = document.getElementById("myButton");
+        const myParagraph = document.getElementById("myParagraph");
+
+        myButton.addEventListener("click", function() {
+            myParagraph.textContent = "Button Clicked!";
+        });
+    </script>
+    <p>Hint: if you want to see the answer, search the html code in the console.</p>
     </section>
 
     <section>

@@ -20,15 +20,33 @@
   </ul>
 
   <h2>Basic React Concepts</h2>
+  <p>React is a JavaScript library for building user interfaces (UIs). It lets you create reusable pieces of UI called components. Think of components as building blocks that you can put together to create complex UIs. A webpage is composed of these components.</p>
+  <p>Components can hold data in two ways:</p>
+  <ul>
+    <li><p>Props (Properties): These are like arguments you pass to a function. They are used to pass data from a parent component to a child component. Props are read-only from the child component's perspective.</p></li>
+    <li><p>State: This is internal data that a component manages itself. State can change over time, usually in response to user interactions or other events. When a component's state changes, React automatically updates the UI to reflect those changes.</p></li>
+  </ul>
+  <p>Components define properties, (event-based) state variables, and event handlers or call-back functions. A component generates HTML with render() function using the so called Virtual DOM. A virtual DOM (Document Object Model) is a lightweight copy of the real DOM. When the state of a component changes, React updates the virtual DOM first. Then, it compares the virtual DOM with the real DOM and only updates the parts of the real DOM that have actually changed. This makes React very efficient at updating the UI. Both properties and states are attributes and values, but properties are set when the component is created and they never change. State variables (initialised in the constructor) represent the current state of the component so they can be modified.</p>
+  <p>React’s component-based structure makes it easier to reuse code, keep your UI organised, and maintain your application as it grows. First you declare what the UI should look like, then React makes it happen: you describe the UI using JSX, and React handles the how.</p>
   <ul>
     <li><p><a href="react1.html" target="_blank">Lesson 1: Introduction</a></p></li>
     <li><p><a href="react2.html" target="_blank">Lesson 2: State and Event Handling</a></p></li>
     <li><p><a href="react3.html" target="_blank">Lesson 3: Lists and Conditional Rendering</a></p></li>
     <li><p><a href="react4.html" target="_blank">Lesson 4: Basic Routing</a></p></li>
+    <li><p><a href="react5.html" target="_blank">Lesson 5: React's Virtual DOM</a></p></li>
+    <li><p><a href="react6.html" target="_blank">Lesson 6: State Management Beyond useState</a></p></li>
+    <li><p><a href="react7.html" target="_blank">Lesson 7: Lifecycle Methods</a></p></li>
+    <li><p><a href="react8.html" target="_blank">Lesson 8: Forms, Validation, and Controlled Components</a></p></li>
+    <li><p><a href="react9.html" target="_blank">Lesson 9: API Integration</a></p></li>
+    <li><p><a href="react10.html" target="_blank">Lesson 10: Error Handling</a></p></li>
+    <li><p><a href="react11.html" target="_blank">Lesson 11: Optimisation</a></p></li>
+    <li><p><a href="react12.html" target="_blank">Lesson 12: Styling in React</a></p></li>
+    <li><p><a href="react13.html" target="_blank">Lesson 13: Debugging and Testing in React</a></p></li>
+    <li><p><a href="capst.html" target="_blank">Capstone Project </a></p></li>
   </ul>
 
   <h3>Assumed Knowledge (JS)</h3>
-  <p>There are numerous great courses on JavaScript (as well as HTML and CSS). The first part of this tutorial doesn't provide an overview of JS, instead it acts as a refresher of the crucial JS concepts for React. Here is a good course on JS by W3Schools: <a href="https://www.w3schools.com/js/default.asp">JavaScript Tutorial</a>. They also have <a href="https://www.w3schools.com/react/default.asp">React Tutorial</a>.</p> 
+  <p>There are numerous great courses on JavaScript (as well as HTML and CSS). The first part of this tutorial doesn't provide an overview of JS, instead it acts as a refresher of the crucial JS concepts for React. Here is a good course on JS by W3Schools: <a href="https://www.w3schools.com/js/default.asp">JavaScript Tutorial</a>. They also have <a href="https://www.w3schools.com/react/default.asp">React Tutorial</a>. Here is another good course on JS: <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting">Dynamic scripting with JavaScript.</a></p>
   <p>In any case, I assume you already know this:</p>
   <ul>
     <li><p>Variables (let, const vs. var).</p></li>
@@ -38,9 +56,17 @@
 
   <h3>Setup Instructions</h3>
   <ul>
-    <li><p>Install Node.js, npm, then you can create a React app (npx create-react-app).</p></li>
-    <li><p>As a quick fix:</p></li>
-    <li><p>Run your JS code in your browser's console. Alternatively, try Online JavaScript Playgrounds (Like CodePen, JSFiddle, StackBlitz, etc)</p></li>
+    <li><p>Install Node.js, npm, then you can create a React app (<code>npx create-react-app)</code>.</p></li>
+    <li><p>As a quick fix: in the <code>head</code> section of each html page add this script (it worked well at the moment of writing, if it doesn't - search!):</p>
+      <pre><code>
+  &lt;!--CDN links for React and ReactDOM--&gt;  
+  &lt;script src="https://unpkg.com/react@17/umd/react.development.js"&gt;&lt;/script&gt;
+  &lt;script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"&gt;&lt;/script&gt;
+  &lt;!--Add Babel to transpile JSX--&gt;
+  &lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;
+      </code></pre>
+    </li>
+    <li><p>Run your JS code in your browser's console. Alternatively, try Online JavaScript Playgrounds (like CodePen, JSFiddle, StackBlitz, etc)</p></li>
   </ul>
 
   <h3>Knowledge Gaps</h3>

@@ -9,11 +9,14 @@ function checkQuiz1() {
 
 function checkQuiz2() {
   const userAnswer = document.getElementById('quiz2').value.trim();
-  const correctAnswer = "const greet = (name = 'Guest') => `Hello, ${name}`;";
-  const result = userAnswer === correctAnswer ? "Correct!" : "Try again!";
+  const correctAnswer = `const greet = (name = "Guest") => \`Hello, \${name}\`;`;
+
+  const normalize = (code) => code.replace(/[\s\n]+/g, " ").replace(/['"]/g, '"').trim();
+  
+  const result = normalize(userAnswer) === normalize(correctAnswer) ? "Correct!" : "Try again!";
   const resultElement = document.getElementById('quiz2-result');
   resultElement.textContent = result;
-  resultElement.style.color = userAnswer === correctAnswer ? "#66c2a5" : "red";
+  resultElement.style.color = normalize(userAnswer) === normalize(correctAnswer) ? "#66c2a5" : "red";
 }
 
 function checkQuiz3() {

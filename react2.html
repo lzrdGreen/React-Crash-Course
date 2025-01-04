@@ -19,15 +19,34 @@
 
     <h3>Topics Covered</h3>
     <ul>
-      <li>useState Hook: Managing state in functional components.</li>
-      <li>Event Handling: Handling user input, button clicks, etc.</li>
-      <li>Two-Way Binding: Using state to track and display user input.</li>
+      <li><p><code>useState</code> <strong>Hook:</strong> Managing state in functional components. This allows you to add state to your functional components, triggering re-renders when the state changes.</p></li>
+      <li><p><strong>Event Handling:</strong> Handling user input, button clicks, and other browser events. This involves attaching event listeners to JSX elements.</p></li>
+      <li>
+        <p>
+            <strong>Handling Form Inputs (Controlled Components):</strong> In React, form elements are typically controlled by React's state. This means that the input's value is driven by the state, and changes to the input update the state. This enables validation, dynamic updates, and more. For example:
+            <pre><code>
+    import { useState } from 'react';
+    
+    function MyInput() {
+      const [inputValue, setInputValue] = useState('');
+    
+      const handleChange = (event) => {
+        setInputValue(event.target.value);
+      };
+    
+      return (
+        &lt;input type="text" value={inputValue} onChange={handleChange} /&gt;
+      );
+    }
+            </code></pre>
+        </p>
+    </li>
     </ul>
 
     <h3>Hands-On</h3>
     <ol>
-      <li>Create a simple counter app.</li>
-      <li>Add an input field that updates dynamically as the user types.</li>
+      <li><p></p>Create a simple counter app.</p></li>
+      <li><p>Add an input field that updates dynamically as the user types.</p></li>
     </ol>
 
     <h3>Example Code</h3>

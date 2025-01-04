@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 12: Styling in React</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>React Crash Course</h1>
+    <h1>React Basics</h1>
+  </header>
+
+<main>
+    <h2>Lesson 12: Styling in React</h2>
+  <h3>Objective</h3>
+  <p>Explore different ways to style React components.</p>
+  
+  <h3>Topics Covered</h3>
+  <ul>
+    <li>Inline styles.</li>
+    <li>CSS Modules.</li>
+    <li>CSS-in-JS solutions like styled-components.</li>
+  </ul>
+
+  <h3>Hands-On</h3>
+  <p>Style a component using CSS Modules and styled-components.</p>
+
+  <h3>Example Code</h3>
+  <pre>
+    <code>
+      // Using CSS Modules
+      import styles from "./Button.module.css";
+
+      function Button() {
+        return <button className={styles.button}>Click Me</button>;
+      }
+
+      export default Button;
+
+      /* Button.module.css */
+      .button {
+        background-color: blue;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      // Using styled-components
+      import styled from "styled-components";
+
+      const StyledButton = styled.button`
+        background-color: blue;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+      `;
+
+      function App() {
+        return <StyledButton>Click Me</StyledButton>;
+      }
+
+      export default App;
+    </code>
+  </pre>
+
+  
+  <div id="quiz-container">
+    <h3>Quizzes</h3>
+    <p>Style a navigation bar using CSS Modules and styled-components.</p>    
+    <textarea id="lesson12-code" rows="6" cols="50"></textarea>
+    <button onclick="checkLesson12()">Check</button>
+    <button onclick="revealAnswer12()">Reveal</button>
+    <p id="lesson12-result"></p>
+  </div>
+  
+</main>
+
+<footer>
+  <p>&copy; 2025 <a href="https://www.linkedin.com/in/alexander-parshakov/" style="color: white; text-decoration: none;">O.Parshakov</a></p>
+ 
+  <p>Dream it. Build it.</p>
+</footer>
+<script src="r12.js"></script>
+</body>
+</html>

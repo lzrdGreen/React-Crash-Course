@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 13: Debugging and Testing in React</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>React Crash Course</h1>
+    <h1>React Basics</h1>
+  </header>
+
+<main>
+    <h2>Lesson 13: Debugging and Testing in React</h2>
+    <h3>Objective</h3>
+    <p>Learn how to debug React applications effectively and write tests to ensure reliability.</p>
+
+    <h3>Topics Covered</h3>
+    <ul>
+        <li>React Developer Tools: Inspecting components and state.</li>
+        <li>Debugging techniques (e.g., using console.log, breakpoints).</li>
+        <li>Introduction to testing with Jest and React Testing Library.</li>
+        <li>Snapshot testing and unit testing React components.</li>
+    </ul>
+
+    <h3>Hands-On</h3>
+    <ol>
+        <li>Use React Developer Tools to inspect a component's props and state.</li>
+        <li>Write a simple unit test for a functional component using Jest and React Testing Library.</li>
+        <li>Test rendering and interactions of a button component.</li>
+    </ol>
+
+    <h3>Example Code</h3>
+    <div class="example">
+        <h3>Debugging with React Developer Tools</h3>
+        <p>Install React DevTools as a browser extension and inspect the props and state of components:</p>
+        <pre>
+        {/* Inspect components in the React tab of your browser DevTools */}
+        console.log("Debugging Component:");
+        </pre>
+    </div>
+    
+    <div class="example">
+        <h3>Testing with Jest and React Testing Library</h3>
+        <p>Install Jest and React Testing Library:</p>
+        <pre>
+        npm install --save-dev jest @testing-library/react @testing-library/jest-dom
+        </pre>
+        <p>Write a test for a simple button component:</p>
+        <pre>
+        import { render, fireEvent } from "@testing-library/react";
+        import "@testing-library/jest-dom";
+        import Button from "./Button";
+
+        test("Button renders and responds to clicks", () => {
+            const handleClick = jest.fn();
+            const { getByText } = render(<Button onClick={handleClick}>Click Me</Button>);
+            
+            const button = getByText("Click Me");
+            fireEvent.click(button);
+            expect(handleClick).toHaveBeenCalledTimes(1);
+        });
+        </pre>
+    </div>
+
+    
+    <div id="quiz-container">
+      <h3>Quizzes</h3>
+      <ul>
+        <li>What tool can you use to inspect the props and state of a React component?</li>
+        <li>Write a test for a form component that validates user input.</li>
+    </ul>   
+      <textarea id="lesson13-code" rows="6" cols="50"></textarea>
+      <button onclick="checkLesson13()">Check</button>
+      <button onclick="revealAnswer13()">Reveal</button>
+      <p id="lesson13-result"></p>
+    </div>
+    
+</main>
+<footer>
+    <p>&copy; 2025 <a href="https://www.linkedin.com/in/alexander-parshakov/" style="color: white; text-decoration: none;">O.Parshakov</a></p>
+   
+    <p>Dream it. Build it.</p>
+  </footer>
+  <script src="r13.js"></script>
+</body>
+</html>
