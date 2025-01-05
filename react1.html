@@ -15,23 +15,26 @@
   <main>
     <h2>Lesson 1: Introduction</h2>
     <h3>Objective</h3>
-    <p>Understand the core building blocks of React.</p>
+    <p>Understand the core building blocks of React, including how to organise code using Modules and Import/Export.</p>
 
     <h3>Topics Covered</h3>
     <ul>
-      <li>What is React? Component-based UI library.</li>
-      <li>JSX: Writing HTML-like syntax in JavaScript.</li>
-      <li>Components: Functional vs. Class components (focus on Functional).</li>
-      <li>Props: Passing data between components.</li>
+      <li><strong>What is React?</strong> A JavaScript library for building user interfaces (UIs). React allows you to create reusable UI components, making it easier to build and maintain complex web applications.</li>
+      <li><strong>JSX:</strong> A syntax extension to JavaScript that lets you write HTML-like code within your JavaScript. JSX makes it easier to visualise and structure your UI.</li>
+      <li><strong>Components:</strong> The fundamental building blocks of React UIs. Components are reusable pieces of code that render HTML.Functional vs. Class components: We will primarily focus on functional components.</li>
+      <li><strong>Props (Properties):</strong> A way to pass data from parent components to child components. Props are read-only from the child component's perspective.</li>
+      <li><strong>Modules and Import/Export:</strong> A way to organise your React code into separate files (modules) and share code between them. <code>import</code> statements bring code from other modules into your current file, while <code>export</code> statements make code available to be used elsewhere. This keeps your codebase organized and maintainable.</li>
     </ul>
 
     <h3>Hands-On</h3>
     <ol>
-      <li>Create a basic App component.</li>
+      <li>Create a basic <code>App</code> component.</li>
       <li>Add a child component, pass data via props, and display it.</li>
+      <li>Split components into separate files and use <code>import</code> and <code>export</code> to organize the code.</li>
     </ol>
 
-    <h3>Example Code</h3>
+    <h3>Example Code A</h3>
+    <p>Inline Components:</p>
     <pre>
         function Welcome(props) {
         return &lt;h1&gt;Hello, {props.name}!&lt;/h1&gt;;
@@ -44,9 +47,31 @@
         export default App;
     </pre>
 
+    <h3>Example Code B</h3>
+    <p>Separate Components:</p>
+    <div>
+      <p><strong>Step 1:</strong> Create a <code>Welcome.js</code> file:</p>
+      <pre>
+export function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}!&lt;/h1&gt;;
+}
+      </pre>
+
+      <p><strong>Step 2:</strong> Use <code>import</code> in the <code>App.js</code> file:</p>
+      <pre>
+import { Welcome } from './Welcome';
+
+function App() {
+  return &lt;Welcome name="React Learner" /&gt;;
+}
+
+export default App;
+      </pre>
+    </div>
+
     <div id="quiz-container">
       <h3>Quizzes</h3>
-      <p>Write the code for a component that displays "Welcome to React!" using props.</p>
+      <p>Write the code to export a <code>Greeting</code> component and import it into an <code>App</code> component.</p>
       <textarea id="lesson1-code" rows="6" cols="50"></textarea>
       <button onclick="checkLesson1()">Check</button>
       <button onclick="revealAnswer()">Reveal</button>
@@ -57,10 +82,9 @@
 
   <footer>
     <p>&copy; 2025 <a href="https://www.linkedin.com/in/alexander-parshakov/" style="color: white; text-decoration: none;">O.Parshakov</a></p>
-   
     <p>Dream it. Build it.</p>
   </footer>
 
-  <script src="r1.js"></script>
+  <script src="r100.js"></script>
 </body>
 </html>

@@ -37,22 +37,31 @@
         <pre><code class="language-javascript">
           const myObject = {
             value: 42,
+
+            // Regular function: 'this' refers to the object that called the function
             regularFunction: function() {
-              console.log("Regular function this:", this.value);
+              console.log("Regular function this:", this.value); // Logs the 'value' property of the calling object
             },
+            // Arrow function: 'this' is lexically bound (inherits 'this' from the surrounding context)
             arrowFunction: () => { // Note the arrow function here as well
-              console.log("Arrow function this:", this.value);
+              console.log("Arrow function this:", this.value); // 'this' does not refer to the calling object
             },
           };
           
+          // Calling methods on myObject
           myObject.regularFunction(); // Output: 42
           myObject.arrowFunction(); // Output: undefined (in strict mode), or something else like window in non-strict mode. This is the key difference!
           
+          // Demonstrating 'this' with another object
           const anotherObject = {value:100}
+
+          // Assigning the regularFunction from myObject to anotherObject
           anotherObject.regularFunction = myObject.regularFunction;
-          anotherObject.regularFunction(); // Output: 100
+          anotherObject.regularFunction(); // Output: 100 because 'this' refers to anotherObject
+
+          // Assigning the arrowFunction from myObject to anotherObject
           anotherObject.arrowFunction = myObject.arrowFunction;
-          anotherObject.arrowFunction(); // Output: undefined (in strict mode), or something else like window in non-strict mode. This is the key difference!
+          anotherObject.arrowFunction(); // Output: undefined (strict mode) or the 'window' object (non-strict mode)
         </code></pre>        
     </section>
 

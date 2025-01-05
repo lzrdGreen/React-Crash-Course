@@ -15,57 +15,58 @@
 <main>
     <h2>Lesson 12: Styling in React</h2>
   <h3>Objective</h3>
-  <p>Explore different ways to style React components.</p>
+  <p>Explore and apply different techniques for styling React components.</p>
   
   <h3>Topics Covered</h3>
   <ul>
-    <li>Inline styles.</li>
-    <li>CSS Modules.</li>
-    <li>CSS-in-JS solutions like styled-components.</li>
+    <li><strong>Inline styles:</strong> Apply styles directly to JSX elements using JavaScript objects. This approach is simple for small, dynamic styles but can become less maintainable for larger projects.</li>
+    <li><strong>CSS Modules:</strong> Write CSS in separate files with locally scoped class names, preventing naming collisions and improving CSS organization. Import these styles into your components.</li>
+    <li><strong>CSS-in-JS Solutions:</strong> Use JavaScript to style your components, allowing you to write CSS within your JavaScript code and benefit from JavaScript's dynamic capabilities. Libraries like styled-components offer features like theming and component composition.</li>
   </ul>
 
   <h3>Hands-On</h3>
   <p>Style a component using CSS Modules and styled-components.</p>
 
   <h3>Example Code</h3>
-  <pre>
-    <code>
-      // Using CSS Modules
-      import styles from "./Button.module.css";
+<pre>
+  <code>
+    // Using CSS Modules
+    import styles from "./Button.module.css";
 
-      function Button() {
-        return <button className={styles.button}>Click Me</button>;
-      }
+    function Button() {
+      return &lt;button className={styles.button}&gt;Click Me&lt;/button&gt;;
+    }
 
-      export default Button;
+    export default Button;
 
-      /* Button.module.css */
-      .button {
-        background-color: blue;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-      }
+    /* Button.module.css */
+    .button {
+      background-color: blue;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+    }
 
-      // Using styled-components
-      import styled from "styled-components";
+    // Using styled-components
+    import styled from "styled-components";
 
-      const StyledButton = styled.button`
-        background-color: blue;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-      `;
+    const StyledButton = styled.button&lt;
+      background-color: blue;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+    &gt;;
 
-      function App() {
-        return <StyledButton>Click Me</StyledButton>;
-      }
+    function App() {
+      return &lt;StyledButton&gt;Click Me&lt;/StyledButton&gt;;
+    }
 
-      export default App;
-    </code>
-  </pre>
+    export default App;
+  </code>
+</pre>
+
 
   
   <div id="quiz-container">
@@ -76,7 +77,7 @@
     <button onclick="revealAnswer12()">Reveal</button>
     <p id="lesson12-result"></p>
   </div>
-  
+  <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
 </main>
 
 <footer>

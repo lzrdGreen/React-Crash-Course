@@ -34,13 +34,14 @@
 
     <h3>Example Code</h3>
     <div class="example">
-        <h3>Debugging with React Developer Tools</h3>
-        <p>Install React DevTools as a browser extension and inspect the props and state of components:</p>
-        <pre>
-        {/* Inspect components in the React tab of your browser DevTools */}
+      <h3>Debugging with React Developer Tools</h3>
+      <p>Install React DevTools as a browser extension and inspect the props and state of components:</p>
+      <pre>
+        // Inspect components in the React tab of your browser DevTools
         console.log("Debugging Component:");
-        </pre>
+      </pre>
     </div>
+    
     
     <div class="example">
         <h3>Testing with Jest and React Testing Library</h3>
@@ -50,34 +51,28 @@
         </pre>
         <p>Write a test for a simple button component:</p>
         <pre>
-        import { render, fireEvent } from "@testing-library/react";
-        import "@testing-library/jest-dom";
-        import Button from "./Button";
-
-        test("Button renders and responds to clicks", () => {
-            const handleClick = jest.fn();
-            const { getByText } = render(<Button onClick={handleClick}>Click Me</Button>);
+          import { render, fireEvent } from "&commat;testing-library/react";
+          import "&commat;testing-library/jest-dom";
+          import Button from "./Button";
+        
+          test("Button renders and responds to clicks", () => {
+            const handleClick = jest.fn();            
+            const { getByText } = render(&lt;Button onClick={handleClick}&gt;Click Me&lt;/Button&gt;);
             
             const button = getByText("Click Me");
             fireEvent.click(button);
             expect(handleClick).toHaveBeenCalledTimes(1);
-        });
+          });
         </pre>
+        
     </div>
 
     
     <div id="quiz-container">
-      <h3>Quizzes</h3>
-      <ul>
-        <li>What tool can you use to inspect the props and state of a React component?</li>
-        <li>Write a test for a form component that validates user input.</li>
-    </ul>   
-      <textarea id="lesson13-code" rows="6" cols="50"></textarea>
-      <button onclick="checkLesson13()">Check</button>
-      <button onclick="revealAnswer13()">Reveal</button>
-      <p id="lesson13-result"></p>
+      <h3>Quizzes</h3>      
+        <p>What tool can you use to inspect the props and state of a React component? (Hint: search the web! I found this <a href="https://stackoverflow.com/questions/29155044/how-do-you-inspect-a-react-elements-props-state-in-the-console">discussion on Stackoverflow</a> quite useful)</p>        
     </div>
-    
+    <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
 </main>
 <footer>
     <p>&copy; 2025 <a href="https://www.linkedin.com/in/alexander-parshakov/" style="color: white; text-decoration: none;">O.Parshakov</a></p>

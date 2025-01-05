@@ -15,13 +15,13 @@
   <main>
     <h2>Lesson 3: Lists and Conditional Rendering</h2>
     <h3>Objective</h3>
-    <p>Work with dynamic data and render it conditionally.</p>
+    <p>Work with dynamic data and render it conditionally in React components.</p>
 
     <h3>Topics Covered</h3>
     <ul>
-      <li>Rendering Lists: Using <code>.map()</code> to render arrays as components.</li>
-      <li>Keys in React: Importance of unique keys for list items.</li>
-      <li>Conditional Rendering: Using if or ternary operators to show/hide elements.</li>
+      <li><strong>Rendering Lists:</strong> Use the <code>.map()</code> method to transform arrays of data into arrays of JSX elements, allowing you to dynamically render lists of components. This is essential for displaying data fetched from APIs or stored in state.</li>
+      <li><strong>Keys in React:</strong> When rendering lists of items, React requires each item to have a unique <code>key</code> prop. Keys help React identify which items have changed, been added, or been removed, optimising rendering performance. Keys should be stable, unique identifiers (e.g., IDs from a database). Using the array index as a key is generally discouraged unless the list order never changes.</li>
+      <li><strong>Conditional Rendering:</strong> Use JavaScript conditional logic (like if statements, ternary operators (<code>condition ? trueValue : falseValue</code>), or logical AND (&&)) within JSX to conditionally render different elements or components based on certain conditions. This allows you to show or hide parts of your UI based on data or user interactions.</li>
     </ul>
 
     <h3>Hands-On</h3>

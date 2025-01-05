@@ -19,61 +19,72 @@
   
   <h3>Topics Covered</h3>
   <ul>
-    <li>Handling forms in React.</li>
-    <li>Controlled vs. uncontrolled components.</li>
-    <li>Form validation techniques.</li>
+    <li><strong>Handling Forms in React:</strong> How to manage form submissions and access form data using event handlers.</li>
+    <li><strong>Controlled vs. Uncontrolled Components:</strong> Understand the difference between controlled (where React state is the single source of truth) and uncontrolled (where the DOM manages the form data) components, and learn when to use each.</li>
+    <li><strong>Form Validation Techniques:</strong> Implement client-side form validation using JavaScript to ensure data integrity and provide user feedback.</li>
   </ul>
 
   <h3>Hands-On</h3>
   <p>Create a login form with input validation.</p>
 
   <h3>Example Code</h3>
-  <pre>
-    <code>
-      import { useState } from "react";
+<pre>
+  <code>
+    import { useState } from "react";
 
-      function LoginForm() {
-        const [username, setUsername] = useState("");
-        const [password, setPassword] = useState("");
-        const [error, setError] = useState("");
+    function LoginForm() {
+      // State to store the value of the username input field.
+      const [username, setUsername] = useState("");
+      // State to store the value of the password input field.
+      const [password, setPassword] = useState("");
+      // State to store error messages related to form validation.
+      const [error, setError] = useState("");
 
-        const handleSubmit = (event) => {
-          event.preventDefault();
-          if (!username || !password) {
-            setError("Both fields are required!");
-          } else {
-            setError("");
-            console.log("Login successful!");
-          }
-        };
+      // Function to handle form submission.
+      const handleSubmit = (event) =&gt; {
+        event.preventDefault(); // Prevents the default form submission behavior (e.g., page reload).
 
-        return (
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>Username:</label>
-              <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </div>
-            <div>
-              <label>Password:</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            <button type="submit">Login</button>
-          </form>
-        );
-      }
+        // Check if either username or password is empty.
+        if (!username || !password) {
+          // Set an error message if validation fails.
+          setError("Both fields are required!");
+        } else {
+          // Clear the error if both fields are filled.
+          setError("");
+          // Simulate a successful login action (e.g., call to a backend API).
+          console.log("Login successful!");
+        }
+      };
 
-      export default LoginForm;
-    </code>
-  </pre>
+      return (
+        // Form element that calls handleSubmit when submitted.
+        &lt;form onSubmit={handleSubmit}&gt;
+          &lt;div&gt;
+            &lt;label&gt;Username:&lt;/label&gt;
+            &lt;input
+              type="text"
+              value={username}
+              onChange={(e) =&gt; setUsername(e.target.value)}
+            /&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            &lt;label&gt;Password:&lt;/label&gt;
+            &lt;input
+              type="password"
+              value={password}
+              onChange={(e) =&gt; setPassword(e.target.value)}
+            /&gt;
+          &lt;/div&gt;
+          {error &amp;&amp; &lt;p style={{ color: "red" }}&gt;{error}&lt;/p&gt;}
+          &lt;button type="submit"&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+      );
+    }
+
+    export default LoginForm;
+  </code>
+</pre>
+
 
   
   <div id="quiz-container">
@@ -90,7 +101,7 @@
     <button onclick="revealAnswer8()">Reveal</button>
     <p id="lesson8-result"></p>
   </div>
-  
+  <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
 </main>
 
 <footer>

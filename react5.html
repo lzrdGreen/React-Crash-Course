@@ -13,48 +13,52 @@
   </header>
 
 <main>
-    <h2>Lesson 5: React's Virtual DOM</h2>
+  <h2>Lesson 5: React's Virtual DOM</h2>
   <h3>Objective</h3>
-  <p>Understand the concept of the Virtual DOM and its role in optimizing UI updates.</p>
+  <p>Understand the concept of the Virtual DOM and its role in optimising UI updates in React applications.</p>
   
   <h3>Topics Covered</h3>
   <ul>
-    <li>How the Virtual DOM works.</li>
-    <li>React's efficiency compared to traditional DOM manipulation.</li>
-    <li>Importance of the Virtual DOM in React's performance.</li>
+    <li><strong>How the Virtual DOM works:</strong> The Virtual DOM is a lightweight, in-memory representation of the actual DOM (Document Object Model). It's a JavaScript object that mirrors the structure of the real DOM. When a component's state or props change, React first updates the Virtual DOM. It then compares the updated Virtual DOM with the previous version. This comparison process is called "diffing." React identifies the minimal set of changes that need to be made to the real DOM. React uses a reconciliation algorithm (the "diffing" process) to efficiently compare the old and new Virtual DOMs. This algorithm identifies the specific nodes that have changed, minimizing direct manipulations of the real DOM.</li>
+    <li><strong>Batch Updates:</strong> React batches multiple state updates together and performs a single update to the real DOM. This reduces the number of re-renders and improves performance.</li>
+    <li><strong>Benefits of the Virtual DOM:</strong> By minimizing direct DOM manipulations, React avoids expensive reflows and repaints in the browser, resulting in faster and more efficient UI updates. This is especially important for complex applications with frequent updates.</li>
   </ul>
 
   <h3>Hands-On</h3>
   <p>Create a component that updates a list dynamically while showcasing React's efficient rendering.</p>
 
   <h3>Example Code</h3>
-  <pre>
-    <code>
-      import { useState } from "react";
+<pre>
+  <code>
+    import { useState } from "react";
 
-      function DynamicList() {
-        const [items, setItems] = useState([]);
+    function DynamicList() {
+      // State to hold the list of items
+      const [items, setItems] = useState([]);
 
-        const addItem = () => {
-          const newItem = `Item ${items.length + 1}`;
-          setItems([...items, newItem]);
-        };
+      // Function to add a new item to the list
+      const addItem = () => {
+        const newItem = `Item ${items.length + 1}`; // Generate a new item label
+        setItems([...items, newItem]); // Update state with the new item
+      };
 
-        return (
-          <div>
-            <button onClick={addItem}>Add Item</button>
-            <ul>
-              {items.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        );
-      }
+      return (
+        &lt;div&gt;
+          &lt;button onClick={addItem}&gt;Add Item&lt;/button&gt;
+          &lt;ul&gt;
+            {items.map((item, index) =&gt; (
+              // Map through items and render each as a list item
+              &lt;li key={index}&gt;{item}&lt;/li&gt; // Use the index as the key (not ideal for dynamic data with reordering)
+            ))}
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      );
+    }
 
-      export default DynamicList;
-    </code>
-  </pre> 
+    export default DynamicList; // Export the component for use in the application
+  </code>
+</pre>
+
   
 
   <div id="quiz-container">
@@ -65,7 +69,7 @@
     <button onclick="revealAnswer5()">Reveal</button>
     <p id="lesson5-result"></p>
 </div>
-
+<button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
 </main>
 
 <footer>

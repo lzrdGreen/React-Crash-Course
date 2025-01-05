@@ -19,50 +19,57 @@
   
   <h3>Topics Covered</h3>
   <ul>
-    <li>Memoisation with <code>React.memo</code>.</li>
-    <li>Using <code>useMemo</code> to optimize calculations.</li>
-    <li>Using <code>useCallback</code> to optimize function references.</li>
+    <li><strong>Memoisation</strong> with <code>React.memo</code>: Use <code>React.memo</code> to memoise functional components, preventing re-renders if the props haven't changed. This is useful for optimizing components that receive the same props frequently.</li>
+    <li>Using <code>useMemo</code> to <strong>optimise calculations</strong>: Use the <code>useMemo</code> hook to memoise the result of expensive calculations. This prevents these calculations from being re-executed on every render if the dependencies haven't changed.</li>
+    <li>Using <code>useCallback</code> to <strong>optimise function references</strong>: Use the <code>useCallback</code> hook to memoise function references. This prevents child components from re-rendering unnecessarily when a function prop is passed down, as it ensures the function reference remains the same unless its dependencies change.</li>
   </ul>
 
   <h3>Hands-On</h3>
-  <p>Create a component that demonstrates the use of React.memo, useMemo, and useCallback.</p>
+  <p>Create a component that demonstrates the use of <code>React.memo</code>, <code>useMemo</code>, and <code>useCallback</code>.</p>
 
   <h3>Example Code</h3>
-  <pre>
-    <code>
-      import React, { useState, useCallback, useMemo } from "react";
+<pre>
+  <code>
+    import React, { useState, useCallback, useMemo } from "react";
 
-      const ExpensiveComponent = React.memo(({ compute }) => {
-        console.log("ExpensiveComponent re-rendered");
-        return <p>Computed value: {compute()}</p>;
-      });
+    // React.memo wraps the ExpensiveComponent to prevent unnecessary re-renders.
+    // It re-renders only if its props change.
+    const ExpensiveComponent = React.memo(({ compute }) => {
+      console.log("ExpensiveComponent re-rendered"); // Logs to indicate when the component re-renders.
+      return &lt;p&gt;Computed value: {compute()}&lt;/p&gt;; // Displays the computed value.
+    });
 
-      function App() {
-        const [count, setCount] = useState(0);
-        const [otherState, setOtherState] = useState(false);
+    function App() {
+      // State to track a counter value.
+      const [count, setCount] = useState(0);
+      // State to track a separate piece of state (for toggling purposes).
+      const [otherState, setOtherState] = useState(false);
 
-        const compute = useCallback(() => {
-          console.log("Computing...");
-          return count * 2;
-        }, [count]);
+      // useCallback memoizes the compute function, ensuring it doesn't
+      // get recreated on every render unless `count` changes.
+      const compute = useCallback(() => {
+        console.log("Computing..."); // Logs whenever the compute function is executed.
+        return count * 2; // Doubles the count value.
+      }, [count]);
 
-        const memoizedValue = useMemo(() => compute(), [compute]);
+      // useMemo memoizes the result of the compute function.
+      // It recalculates only when the `compute` function changes.
+      const memoizedValue = useMemo(() => compute(), [compute]);
 
-        return (
-          <div>
-            <button onClick={() => setCount((prev) => prev + 1)}>Increment</button>
-            <button onClick={() => setOtherState((prev) => !prev)}>
-              Toggle State
-            </button>
-            <ExpensiveComponent compute={memoizedValue} />
-          </div>
-        );
-      }
+      return (
+        &lt;div&gt;
+          &lt;button onClick={() => setCount((prev) => prev + 1)}&gt;Increment&lt;/button&gt;
+          &lt;button onClick={() => setOtherState((prev) => !prev)}&gt;
+            Toggle State
+          &lt;/button&gt;
+          &lt;ExpensiveComponent compute={memoizedValue} /&gt;
+        &lt;/div&gt;
+      );
+    }
 
-      export default App;
-    </code>
-  </pre>
-
+    export default App;
+  </code>
+</pre>
   
   <div id="quiz-container">
     <h3>Quizzes</h3>
@@ -72,7 +79,7 @@
     <button onclick="revealAnswer11()">Reveal</button>
     <p id="lesson11-result"></p>
   </div>
-  
+  <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
 </main>
 
 <footer>

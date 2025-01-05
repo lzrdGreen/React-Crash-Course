@@ -19,9 +19,10 @@
   
   <h3>Topics Covered</h3>
   <ul>
-    <li>Managing complex state with <code>useReducer</code>.</li>
-    <li>Sharing state using the Context API.</li>
-    <li>When and why to use these tools over <code>useState</code>.</li>
+    <li><strong>Managing complex state with <code>useReducer</code>:</strong> The <code>useReducer</code> hook is an alternative to <code>useState</code>  that is better suited for managing more complex state logic, especially when state updates depend on previous state or involve multiple sub-values. It takes a reducer function (which specifies how state changes in response to actions) and an initial state..</li>
+    <li><strong>Sharing State with the Context API:</strong> The Context API provides a way to share state between components without explicitly passing props down through every level of the component tree (prop drilling). It creates a context object that can be accessed by any component within its scope. This is useful for sharing global data like user authentication status, theme settings, or language preferences.</li>
+    <li><strong>When to use <code>useReducer</code> vs. <code>useState</code>:</strong> Use <code>useState</code> for simple state management within a single component. Use <code>useReducer</code> if state logic is complex and involves multiple sub-values or dependent updates/ state updates depend on the previous state/ you want to optimize performance by preventing unnecessary re-renders.</li>
+    <li><p><strong>When to Use Context API:</strong> Use the Context API if you need to share data with many deeply nested components/ you want to avoid prop drilling/ you have data that can be considered "global" to a part of your application.</p></li>
   </ul>
 
   <h3>Hands-On</h3>
@@ -32,21 +33,24 @@
   <code>
     import { useReducer, createContext, useContext } from "react";
 
+    // Create a context for managing tasks
     const TaskContext = createContext();
 
+    // Reducer function to manage tasks based on actions
     const taskReducer = (state, action) => {
       switch (action.type) {
-        case "ADD_TASK":
-          return [...state, { id: Date.now(), text: action.payload }];
-        case "REMOVE_TASK":
-          return state.filter(task =&gt; task.id !== action.payload);
-        default:
+        case "ADD_TASK": // Action to add a new task
+          return [...state, { id: Date.now(), text: action.payload }]; // Add task with unique id and text
+        case "REMOVE_TASK": // Action to remove a task
+          return state.filter(task =&gt; task.id !== action.payload); // Filter out the task with the specified id
+        default: // Default case for unknown actions
           return state;
       }
     };
 
+    // Context provider component to wrap the app and share tasks and dispatch
     function TaskProvider({ children }) {
-      const [tasks, dispatch] = useReducer(taskReducer, []);
+      const [tasks, dispatch] = useReducer(taskReducer, []); // Initialize reducer with an empty task array
       return (
         &lt;TaskContext.Provider value={{ tasks, dispatch }}&gt;
           {children}
@@ -54,8 +58,9 @@
       );
     }
 
+    // Component to display the list of tasks
     function TaskList() {
-      const { tasks, dispatch } = useContext(TaskContext);
+      const { tasks, dispatch } = useContext(TaskContext); // Access tasks and dispatch from context
 
       return (
         &lt;div&gt;
@@ -73,18 +78,20 @@
       );
     }
 
+    // Component to input and add tasks
     function TaskInput() {
-      const { dispatch } = useContext(TaskContext);
+      const { dispatch } = useContext(TaskContext); // Access dispatch from context
       const addTask = () =&gt; {
-        const task = prompt("Enter a task:");
+        const task = prompt("Enter a task:"); // Prompt the user for task input
         if (task) {
-          dispatch({ type: "ADD_TASK", payload: task });
+          dispatch({ type: "ADD_TASK", payload: task }); // Dispatch an action to add the new task
         }
       };
 
-      return &lt;button onClick={addTask}&gt;Add Task&lt;/button&gt;;
+      return &lt;button onClick={addTask}&gt;Add Task&lt;/button&gt;; // Button to trigger the task input
     }
 
+    // Main app component that uses the provider and child components
     function App() {
       return (
         &lt;TaskProvider&gt;
@@ -94,7 +101,7 @@
       );
     }
 
-    export default App;
+    export default App; // Export the app component
   </code>
 </pre>
     
@@ -106,6 +113,7 @@
     <button onclick="revealAnswer6()">Reveal</button>
     <p id="lesson6-result"></p>
 </div>
+<button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
 </main>
 
 <footer>
