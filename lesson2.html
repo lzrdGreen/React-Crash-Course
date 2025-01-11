@@ -74,6 +74,7 @@
           <input type="text" id="quiz1">
           <button onclick="checkQuiz2_1()">Check</button>
           <button onclick="revealAnswer('quiz1')">Reveal</button>
+          <button onclick="demoQuiz1()">Demo</button>
           <p id="quiz1-result"></p>
         </div>
 
@@ -81,7 +82,8 @@
           <label for="quiz2">2. Add a new list item:</label>
           <input type="text" id="quiz2">
           <button onclick="checkQuiz2_2()">Check</button>
-          <button onclick="revealAnswer('quiz2')">Reveal</button>
+          <button onclick="revealAnswer('quiz2')">Reveal</button><button onclick="demoQuiz2()">Demo</button>
+          <ul id="myList"></ul>          
           <p id="quiz2-result"></p>
         </div>
 
@@ -90,6 +92,8 @@
           <input type="text" id="quiz3">
           <button onclick="checkQuiz2_3()">Check</button>
           <button onclick="revealAnswer('quiz3')">Reveal</button>
+          <button onclick="demoQuiz3()">Demo</button>
+          <button id="submitBtn">Submit</button>
           <p id="quiz3-result"></p>
         </div>
       </div>
@@ -102,7 +106,44 @@
    
     <p>Dream it. Build it.</p>
   </footer>
-
+  <script>
+    function demoQuiz1() {
+      // Selecting an element with ID 'container'
+      const demoContainer = document.createElement('div');
+      demoContainer.id = 'container';
+      demoContainer.textContent = 'I am the container element!';
+      document.body.appendChild(demoContainer);
+    
+      console.log('Demo for Quiz 1:');
+      const containerElement = document.getElementById('container');
+      console.log(containerElement);
+    }
+    
+    function demoQuiz2() {
+      // Adding a new list item to the ul with ID 'myList'
+      const newListItem = document.createElement('li');
+      newListItem.textContent = 'New Item';
+      newListItem.classList.add('highlight');
+    
+      const myList = document.getElementById('myList');
+      myList.appendChild(newListItem);
+    
+      console.log('Demo for Quiz 2:');
+      console.log(myList);
+    }
+    
+    function demoQuiz3() {
+      // Adding a click event listener to a button with ID 'submitBtn'
+      const submitButton = document.getElementById('submitBtn');
+      submitButton.addEventListener('click', function () {
+        alert('Button Clicked!');
+      });
+    
+      console.log('Demo for Quiz 3:');
+      console.log('Click the "Submit" button to see the alert.');
+    }
+    
+  </script>
   <script src="script-l2.js"></script>
 </body>
 </html>

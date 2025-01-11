@@ -25,8 +25,28 @@
       <ul>
           <li>
               <p>
-                  <strong>Promises:</strong> These represent the eventual result of an asynchronous operation. A promise can be in one of three states: pending, fulfilled (resolved), or rejected. For example: <code>const myPromise = new Promise((resolve, reject) => { /* ... */ });</code>
+                  <strong>Promises:</strong> Promises in JavaScript are a powerful way to handle asynchronous operations. Asynchronous operations are actions that don't complete immediately, such as fetching data from a server, reading files, or setting timers. Instead of waiting for these operations to finish and blocking the execution of other code, JavaScript uses promises to manage their eventual outcome. A promise can be in one of three states: pending, fulfilled (resolved), or rejected. For example: <code>const myPromise = new Promise((resolve) => {
+                    resolve("Promise resolved immediately!");
+                  });</code> This creates a promise that immediately resolves with the value "Promise resolved immediately!". The<code>resolve</code>function is called to transition the promise to the fulfilled state. Antoher example (Asynchronous Resolution):
               </p>
+              <pre><code>
+                const myPromise = new Promise((resolve) => {
+                  setTimeout(() => {
+                    resolve("Promise resolved after 1 second!");
+                  }, 1000); // Wait 1 second
+                });
+              </code></pre>
+              <p>This example show how a promise can be rejected:</p>
+              <pre><code>
+                const myPromiseReject = new Promise((resolve, reject) => {
+                  const shouldReject = true; // Simulate a condition that might cause rejection
+                  if (shouldReject) {
+                      reject("Promise rejected!");
+                  } else {
+                      resolve("Promise resolved!");
+                  }
+              });
+              </code></pre>
           </li>
           <li>
               <p>
@@ -51,6 +71,7 @@
           <li>
               <p>
                   <strong>Error handling in async/await:</strong> Errors in async/await functions are typically handled using a <code>try...catch</code> block. For example:
+                </p>
                   <pre><code>
         async function fetchData() {
             try {
@@ -60,8 +81,7 @@
                 console.error("Error:", error);
             }
         }
-                  </code></pre>
-              </p>
+                  </code></pre>              
           </li>
       </ul>
   </section>
@@ -97,12 +117,14 @@
         <li>How do you handle errors in an async/await function?</li>
       </ol>
       <h3>Submit Your Answers</h3>
+      <p>(Hint: open console for demo)</p>
       <div id="quiz-container">
         <div class="quiz-item">
           <label for="quiz1">1. Purpose of <code>.then()</code>:</label>
           <input type="text" id="quiz1">
           <button onclick="checkQuiz4_1()">Check</button>
           <button onclick="revealAnswer('quiz1')">Reveal</button>
+          <button onclick="demoQuiz4_1()">Demo</button>
           <p id="quiz1-result"></p>
         </div>
     
@@ -111,6 +133,7 @@
           <input type="text" id="quiz2">
           <button onclick="checkQuiz4_2()">Check</button>
           <button onclick="revealAnswer('quiz2')">Reveal</button>
+          <button onclick="demoQuiz4_2()">Demo</button>
           <p id="quiz2-result"></p>
         </div>
     
@@ -119,6 +142,7 @@
           <input type="text" id="quiz3">
           <button onclick="checkQuiz4_3()">Check</button>
           <button onclick="revealAnswer('quiz3')">Reveal</button>
+          <button onclick="demoQuiz4_3()">Demo</button>
           <p id="quiz3-result"></p>
         </div>
       </div>
@@ -132,7 +156,45 @@
    
     <p>Dream it. Build it.</p>
   </footer>
+  <script>
+    // Demo for .then()
+    function demoQuiz4_1() {
+      const demoPromise = new Promise((resolve) => {
+        setTimeout(() => resolve('Promise Resolved!'), 1000);
+      });
 
+      console.log('Demo for Quiz 1:');
+      demoPromise.then((value) => {
+        console.log('.then() received:', value);
+      });
+    }
+
+    // Demo for async keyword
+    function demoQuiz4_2() {
+      async function fetchData() {
+        return 'Fetched Data!';
+      }
+
+      console.log('Demo for Quiz 2:');
+      fetchData().then((value) => {
+        console.log('Async function resolved with:', value);
+      });
+    }
+
+    // Demo for error handling with async/await
+    function demoQuiz4_3() {
+      async function fetchWithErrorHandling() {
+        try {
+          await fakeAsyncFunction(); // This function doesn't exist to simulate an error
+        } catch (error) {
+          console.error('Caught an error:', error.message || error);
+        }
+      }
+
+      console.log('Demo for Quiz 3:');
+      fetchWithErrorHandling();
+    }
+  </script>
   <script src="script-l4.js"></script>
 </body>
 </html>
