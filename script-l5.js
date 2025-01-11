@@ -13,7 +13,7 @@ function checkQuiz5_1() {
     resultElement.style.color = "#66c2a5";
   } else {
     resultElement.textContent = "Try again!";
-    resultElement.style.color = "red";
+    resultElement.style.color = "#e31a1c";
   }
 }
 
@@ -28,7 +28,7 @@ function checkQuiz5_2() {
     resultElement.style.color = "#66c2a5";
   } else {
     resultElement.textContent = "Try again!";
-    resultElement.style.color = "red";
+    resultElement.style.color = "#e31a1c";
   }
 }
 
@@ -45,7 +45,7 @@ items.map((item, index) => <li key={index}>{item}</li>)
     resultElement.style.color = "#66c2a5";
   } else {
     resultElement.textContent = "Try again!";
-    resultElement.style.color = "red";
+    resultElement.style.color = "#e31a1c";
   }
 }
 
@@ -71,5 +71,5 @@ Hint: Use the <code>.map()</code> method with a key for each element:
     default:
       resultElement.textContent = "Invalid quiz ID.";
   }
-  resultElement.style.color = "#3288bd";
+  resultElement.style.color = "#1f78b4";
 }

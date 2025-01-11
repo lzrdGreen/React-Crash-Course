@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson 11: Optimisation</title>
+  <!--CDN links for React and ReactDOM-->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!--Add Babel to transpile JSX-->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -77,8 +82,12 @@
     <textarea id="lesson11-code" rows="6" cols="50"></textarea>
     <button onclick="checkLesson11()">Check</button>
     <button onclick="revealAnswer11()">Reveal</button>
+    <button onclick="demoLesson11()">Demo</button>
     <p id="lesson11-result"></p>
   </div>
+  <div id="demo-container"></div>
+  <p>If you try Demo, pay attention on the difference of behaviour (onscreen and in the console): clicking "Increment Parent Count" updates only the parent count without re-rendering the child, while clicking "Increment Child Count" updates only the child count and re-renders the child component.</p>
+
   <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
 </main>
 
@@ -87,6 +96,46 @@
  
   <p>Dream it. Build it.</p>
 </footer>
+<script type="text/babel">
+  // Child component using React.memo
+  const Child = React.memo(({ count, onClick }) => {
+    console.log('Child rendered');
+    return (
+      <div>
+        <p>Child Count: {count}</p>
+        <button onClick={onClick}>Increment Child Count</button>
+      </div>
+    );
+  });
+
+  // Parent component using useCallback and React.memo
+  function Parent() {
+    const [parentCount, setParentCount] = React.useState(0);
+    const [childCount, setChildCount] = React.useState(0);
+
+    // Memoize the callback to prevent unnecessary re-renders of Child
+    const incrementChildCount = React.useCallback(() => {
+      setChildCount((prev) => prev + 1);
+    }, []);
+
+    return (
+      <div>
+        <p>Parent Count: {parentCount}</p>
+        <button onClick={() => setParentCount(parentCount + 1)}>
+          Increment Parent Count
+        </button>
+        <Child count={childCount} onClick={incrementChildCount} />
+      </div>
+    );
+  }
+
+  // Demo function for Lesson 11
+  function demoLesson11() {
+    console.log('Demo for Lesson 11: Optimization with React.memo and useCallback');
+
+    ReactDOM.render(<Parent />, document.getElementById('demo-container'));
+  }
+</script>
 <script src="r11.js"></script>
 </body>
 </html>

@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson 4: Basic Routing</title>
+  <!--CDN links for React and ReactDOM-->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>  
+  <!--Add Babel to transpile JSX-->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -80,9 +85,11 @@ export default App;
       <p>Create a "Contact" page and add a route to navigate to it using a link.</p>
       <textarea id="lesson4-code" rows="6" cols="50"></textarea>
       <button onclick="checkLesson4()">Check</button>
-      <button onclick="revealAnswer4()">Reveal</button>
+      <button onclick="revealAnswer4()">Reveal</button>      
       <p id="lesson4-result"></p>
     </div>
+    
+
     <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>    
   </main>
 
@@ -91,7 +98,7 @@ export default App;
    
     <p>Dream it. Build it.</p>
   </footer>
-
+  
   <script src="r4.js"></script>
 </body>
 </html>

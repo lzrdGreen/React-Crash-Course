@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson 2: State and Event Handling</title>
+  <!--CDN links for React and ReactDOM-->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!--Add Babel to transpile JSX-->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -77,8 +82,11 @@ export default App;
       <textarea id="lesson2-code" rows="6" cols="50"></textarea>
       <button onclick="checkLesson2()">Check</button>
       <button onclick="revealAnswer2()">Reveal</button>
+      <button onclick="demoLesson2()">Demo</button>
       <p id="lesson2-result"></p>
     </div>
+    <div id="demo-container"></div>
+
     <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
   </main>
 
@@ -87,7 +95,25 @@ export default App;
    
     <p>Dream it. Build it.</p>
   </footer>
+  <script type="text/babel">
+     // Demo for Lesson 2: State and Event Handling
+      function demoLesson2() {
+        console.log('Demo for Lesson 2: Counter Component');
 
+        function Counter() {
+          const [count, setCount] = React.useState(0);
+
+          return (
+            <div>
+              <p>Count: {count}</p>
+              <button onClick={() => setCount(count - 1)}>Decrease</button>
+            </div>
+          );
+        }
+
+        ReactDOM.render(<Counter />, document.getElementById('demo-container'));
+      }
+  </script>
   <script src="r2.js"></script>
 </body>
 </html>

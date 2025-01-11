@@ -50,7 +50,7 @@ function checkLesson8() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p style={{ color: "#e31a1c" }}>{error}</p>}
         <button type="submit">Signup</button>
       </form>
     );
@@ -69,7 +69,7 @@ function checkLesson8() {
     if (result === "Correct!") {
       resultElement.style.color = "#66c2a5";
     } else {
-      resultElement.style.color = "red";
+      resultElement.style.color = "#e31a1c";
     }
   }
   
@@ -134,6 +134,6 @@ function checkLesson8() {
   
     const resultElement = document.getElementById("lesson8-result");
     resultElement.textContent = `Correct Answer: ${correctCode}`;
-    resultElement.style.color = "#3288bd";
+    resultElement.style.color = "#1f78b4";
   }
   

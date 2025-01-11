@@ -32,7 +32,7 @@ function App() {
   if (result === "Correct!") {
     resultElement.style.color = "#66c2a5";
   } else {
-    resultElement.style.color = "red";
+    resultElement.style.color = "#e31a1c";
   }
 }
 
@@ -60,5 +60,5 @@ function App() {
 }`;
   const resultElement = document.getElementById("lesson4-result");
   resultElement.textContent = `Correct Answer: ${correctCode}`;
-  resultElement.style.color = "#3288bd";
+  resultElement.style.color = "#1f78b4";
 }

@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson 5: React's Virtual DOM</title>
+  <!--CDN links for React and ReactDOM-->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!--Add Babel to transpile JSX-->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -67,8 +72,12 @@
     <textarea id="lesson5-code" rows="6" cols="50"></textarea>
     <button onclick="checkLesson5()">Check</button>
     <button onclick="revealAnswer5()">Reveal</button>
+    <button onclick="demoLesson5()">Demo</button>
     <p id="lesson5-result"></p>
-</div>
+  </div>
+  <p>Pay attention to the difference in the update logic between the Demo and recommended answer. You can use either <code>map()</code> or array cloning (<code>...items</code>).</p>
+  <div id="demo-container"></div>
+
 <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
 </main>
 
@@ -77,7 +86,53 @@
  
   <p>Dream it. Build it.</p>
 </footer>
+<script type="text/babel">
+  // Demo for Lesson 5: React's Virtual DOM
+  function demoLesson5() {
+    console.log("Demo for Lesson 5: React's Virtual DOM");
 
+    function ListItem({ id, value, onUpdate }) {
+      console.log(`Rendering item with id: ${id}`);
+      return (
+        <li>
+          {value} 
+          <button onClick={() => onUpdate(id)}>Update</button>
+        </li>
+      );
+    }
+
+    function App() {
+      const [items, setItems] = React.useState([
+        { id: 1, value: "Item 1" },
+        { id: 2, value: "Item 2" },
+        { id: 3, value: "Item 3" },
+      ]);
+
+      const handleUpdate = (id) => {
+        setItems((prevItems) =>
+          prevItems.map((item) =>
+            item.id === id ? { ...item, value: `Updated ${item.value}` } : item
+          )
+        );
+      };
+
+      return (
+        <ul>
+          {items.map((item) => (
+            <ListItem
+              key={item.id}
+              id={item.id}
+              value={item.value}
+              onUpdate={handleUpdate}
+            />
+          ))}
+        </ul>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById("demo-container"));
+  }
+</script>
   <script src="r5.js"></script>
 </body>
 </html>

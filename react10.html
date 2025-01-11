@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson 10: Error Handling</title>
+  <!--CDN links for React and ReactDOM-->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!--Add Babel to transpile JSX-->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -83,8 +88,6 @@
     export default App;
   </code>
 </pre>
-
-
   
   <div id="quiz-container">
     <h3>Quizzes</h3>
@@ -92,8 +95,11 @@
     <textarea id="lesson10-code" rows="6" cols="50"></textarea>
     <button onclick="checkLesson10()">Check</button>
     <button onclick="revealAnswer10()">Reveal</button>
+    <button onclick="demoLesson10()">Demo</button>
     <p id="lesson10-result"></p>
   </div>
+    <div id="demo-container"></div>
+
   <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
 </main>
 
@@ -102,6 +108,67 @@
  
   <p>Dream it. Build it.</p>
 </footer>
+<script type="text/babel">
+  // ErrorBoundary class component
+  class ErrorBoundary extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = { hasError: false };
+    }
+
+    static getDerivedStateFromError(error) {
+      return { hasError: true };
+    }
+
+    componentDidCatch(error, info) {
+      console.error('ErrorBoundary caught an error:', error, info);
+    }
+
+    handleRetry = () => {
+      this.setState({ hasError: false });
+    };
+
+    render() {
+      if (this.state.hasError) {
+        return (
+          <div>
+            <p>Something went wrong.</p>
+            <button onClick={this.handleRetry}>Retry</button>
+          </div>
+        );
+      }
+      return this.props.children;
+    }
+  }
+
+  // Component that triggers an error for demonstration
+  function BuggyComponent() {
+    const [counter, setCounter] = React.useState(0);
+
+    if (counter === 5) {
+      throw new Error('Counter reached 5!');
+    }
+
+    return (
+      <div>
+        <p>Counter: {counter}</p>
+        <button onClick={() => setCounter(counter + 1)}>Increment</button>
+      </div>
+    );
+  }
+
+  // Demo function for Lesson 10
+  function demoLesson10() {
+    console.log('Demo for Lesson 10: Error Handling Quizzes');
+
+    ReactDOM.render(
+      <ErrorBoundary>
+        <BuggyComponent />
+      </ErrorBoundary>,
+      document.getElementById('demo-container')
+    );
+  }
+</script>
 <script src="r10.js"></script>
 </body>
 </html>

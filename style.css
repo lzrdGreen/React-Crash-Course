@@ -7,7 +7,7 @@ body {
   
   
 header {
-    background: #2166ac;
+    background: #1f78b4;
     color: white;
     padding: 20px 10px;
     text-align: center;
@@ -18,7 +18,7 @@ main {
   }
   
 h2, h3, h4 {
-    color: #3288bd;
+    color: #1f78b4;
   }
   
 pre {
@@ -46,20 +46,20 @@ pre {
   
   
 button {
-    background-color: #d1e5f0;
+    background-color: #cee7f1;
     color: #000;
-    border: 2px solid #2166ac;
+    border: 2px solid #1f78b4;
     cursor: pointer;
     padding: 5px 9px;
     border-radius: 3px;
 }
   
 button:hover {
-    background: #4393c3;
+    background: #a6cee3;
   }
 
 footer {
-    background-color: #2166ac;
+    background-color: #1f78b4;
     height: 95px;
     padding: 10px;
 }

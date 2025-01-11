@@ -11,7 +11,7 @@
       resultElement.style.color = "#66c2a5";
     } else {
       resultElement.textContent = "Try again!";
-      resultElement.style.color = "red";
+      resultElement.style.color = "#e31a1c";
     }
   }
   
@@ -30,7 +30,7 @@
       resultElement.style.color = "#66c2a5";
     } else {
       resultElement.textContent = "Try again!";
-      resultElement.style.color = "red";
+      resultElement.style.color = "#e31a1c";
     }
   }
   
@@ -48,7 +48,7 @@
       resultElement.style.color = "#66c2a5";
     } else {
       resultElement.textContent = "Try again!";
-      resultElement.style.color = "red";
+      resultElement.style.color = "#e31a1c";
     }
   }
   
@@ -86,6 +86,6 @@
       default:
         resultElement.textContent = "Invalid quiz ID.";
     }
-    resultElement.style.color = "#3288bd";
+    resultElement.style.color = "#1f78b4";
   }
   

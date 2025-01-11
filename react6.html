@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson 6: State Management Beyond useState</title>
+  <!--CDN links for React and ReactDOM-->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!--Add Babel to transpile JSX-->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -111,8 +116,11 @@
     <textarea id="lesson6-code" rows="6" cols="50"></textarea>
     <button onclick="checkLesson6()">Check</button>
     <button onclick="revealAnswer6()">Reveal</button>
+    <button onclick="demoLesson6()">Demo</button>
     <p id="lesson6-result"></p>
 </div>
+<div id="demo-container"></div>
+
 <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
 </main>
 
@@ -121,6 +129,68 @@
  
   <p>Dream it. Build it.</p>
 </footer>
+<script type="text/babel">
+  // Demo for Lesson 6: State Management Beyond useState
+function demoLesson6() {
+  const { useReducer } = React;
+
+  const taskReducer = (state, action) => {
+    switch (action.type) {
+      case "ADD_TASK":
+        return [
+          ...state,
+          { id: Date.now(), text: action.payload, completed: false },
+        ];
+      case "TOGGLE_TASK":
+        return state.map((task) =>
+          task.id === action.payload
+            ? { ...task, completed: !task.completed }
+            : task
+        );
+      default:
+        return state;
+    }
+  };
+
+  function App() {
+    const [tasks, dispatch] = useReducer(taskReducer, []);
+
+    const addTask = () => {
+      const task = prompt("Enter a task:");
+      if (task) {
+        dispatch({ type: "ADD_TASK", payload: task });
+      }
+    };
+
+    return (
+      <div>
+        <button onClick={addTask}>Add Task</button>
+        <ul>
+          {tasks.map((task) => (
+            <li
+              key={task.id}
+              style={{
+                textDecoration: task.completed ? "line-through" : "none",
+              }}
+            >
+              {task.text}{" "}
+              <button
+                onClick={() =>
+                  dispatch({ type: "TOGGLE_TASK", payload: task.id })
+                }
+              >
+                Toggle
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  ReactDOM.render(<App />, document.getElementById("demo-container"));
+}
+</script>
 <script src="r6.js"></script>
 </body>
 </html>

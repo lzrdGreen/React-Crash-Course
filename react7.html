@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson 7: Lifecycle Methods</title>
+  <!--CDN links for React and ReactDOM-->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!--Add Babel to transpile JSX-->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -75,8 +80,10 @@
     <textarea id="lesson7-code" rows="6" cols="50"></textarea>
     <button onclick="checkLesson7()">Check</button>
     <button onclick="revealAnswer7()">Reveal</button>
+    <button onclick="demoLesson7()">Demo</button>
     <p id="lesson7-result"></p>
 </div>
+<div id="demo-container"></div>
   
 <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
 </main>
@@ -86,6 +93,51 @@
  
   <p>Dream it. Build it.</p>
 </footer>
+<script type="text/babel">
+  // Demo for Lesson 7: Lifecycle Methods
+  function demoLesson7() {
+    const { useState, useEffect } = React;
+
+    function TimerComponent() {
+      const [count, setCount] = useState(0);
+
+      useEffect(() => {
+        console.log("Component mounted, starting timer...");
+
+        const timer = setInterval(() => {
+          setCount((prevCount) => prevCount + 1);
+        }, 1000);
+
+        // Cleanup function to clear the timer on unmount
+        return () => {
+          console.log("Component unmounted, clearing timer...");
+          clearInterval(timer);
+        };
+      }, []); // Empty dependency array ensures this effect runs only once
+
+      return (
+        <div>
+          <h2>Timer: {count} seconds</h2>
+        </div>
+      );
+    }
+
+    function App() {
+      const [showTimer, setShowTimer] = useState(true);
+
+      return (
+        <div>
+          <button onClick={() => setShowTimer((prev) => !prev)}>
+            {showTimer ? "Stop Timer" : "Start Timer"}
+          </button>
+          {showTimer && <TimerComponent />}
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById("demo-container"));
+  }
+</script>
 <script src="r7.js"></script>
 </body>
 </html>

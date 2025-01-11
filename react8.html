@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson 8: </title>
+  <!--CDN links for React and ReactDOM-->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!--Add Babel to transpile JSX-->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -84,8 +89,6 @@
     export default LoginForm;
   </code>
 </pre>
-
-
   
   <div id="quiz-container">
     <h3>Quizzes</h3>
@@ -99,8 +102,11 @@
     <textarea id="lesson8-code" rows="6" cols="50"></textarea>
     <button onclick="checkLesson8()">Check</button>
     <button onclick="revealAnswer8()">Reveal</button>
+    <button onclick="demoLesson8()">Demo</button>
     <p id="lesson8-result"></p>
   </div>
+  <div id="react-demo"></div>
+
   <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
 </main>
 
@@ -109,6 +115,67 @@
  
   <p>Dream it. Build it.</p>
 </footer>
+<script type="text/babel">
+  function SignupForm() {
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const [errors, setErrors] = React.useState({ email: '', password: '' });
+
+    const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const validatePassword = (password) => password.length >= 8;
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const newErrors = { email: '', password: '' };
+      let hasError = false;
+
+      if (!validateEmail(email)) {
+        hasError = true;
+        newErrors.email = 'Invalid email format.';
+      }
+      if (!validatePassword(password)) {
+        hasError = true;
+        newErrors.password = 'Password must be at least 8 characters.';
+      }
+
+      setErrors(newErrors);
+
+      if (!hasError) {
+        alert('Signup successful!');
+        setEmail('');
+        setPassword('');
+      }
+    };
+
+    return (
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
+        </div>
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
+        </div>
+        <button type="submit">Signup</button>
+      </form>
+    );
+  }
+
+  function demoLesson8() {
+    ReactDOM.render(<SignupForm />, document.getElementById('react-demo'));
+  }
+</script>
 <script src="r8.js"></script>
 </body>
 </html>

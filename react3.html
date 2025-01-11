@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson 3: Lists and Conditional Rendering</title>
+  <!--CDN links for React and ReactDOM-->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!--Add Babel to transpile JSX-->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -62,8 +67,11 @@ export default App;
       <textarea id="lesson3-code" rows="6" cols="50"></textarea>
       <button onclick="checkLesson3()">Check</button>
       <button onclick="revealAnswer3()">Reveal</button>
+      <button onclick="demoLesson3()">Demo</button>
       <p id="lesson3-result"></p>
     </div>
+    <div id="demo-container"></div>
+
     <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
   </main>
 
@@ -72,7 +80,41 @@ export default App;
    
     <p>Dream it. Build it.</p>
   </footer>
-
+  <script type="text/babel">
+    // Demo for Lesson 3: Lists and Conditional Rendering
+    function demoLesson3() {
+      console.log('Demo for Lesson 3: Lists and Conditional Rendering');
+  
+      function TaskList({ tasks }) {
+        const incompleteTasks = tasks.filter(task => !task.completed);
+  
+        return (
+          <div>
+            {incompleteTasks.length === 0 ? (
+              <p>All items are completed!</p>
+            ) : (
+              <div>
+                <p>Incomplete Tasks:</p>
+                <ul>
+                  {incompleteTasks.map((task, index) => (
+                    <li key={index}>{task.name}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        );
+      }
+  
+      const sampleTasks = [
+        { name: 'Task 1', completed: true },
+        { name: 'Task 2', completed: false },
+        { name: 'Task 3', completed: true }
+      ];
+  
+      ReactDOM.render(<TaskList tasks={sampleTasks} />, document.getElementById('demo-container'));
+    }
+  </script> 
   <script src="r3.js"></script>
 </body>
 </html>

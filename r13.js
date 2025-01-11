@@ -53,7 +53,7 @@ function checkLesson13() {
     resultElement.style.color = "#66c2a5";
   } else {
     resultElement.textContent = "Try again!";
-    resultElement.style.color = "red";
+    resultElement.style.color = "#e31a1c";
   }
 }
 
@@ -129,6 +129,6 @@ function checkLesson13() {
   
     const resultElement = document.getElementById("lesson13-result");
     resultElement.textContent = `Correct Answer: ${correctCode}\n\nTest Code: ${testCode}`;
-    resultElement.style.color = "#3288bd";
+    resultElement.style.color = "#1f78b4";
   }
   

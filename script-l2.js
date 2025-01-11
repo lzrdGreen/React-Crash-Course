@@ -11,7 +11,7 @@ function checkQuiz2_1() {
       resultElement.style.color = "#66c2a5";
   } else {
       resultElement.textContent = "Try again!";
-      resultElement.style.color = "red";
+      resultElement.style.color = "#e31a1c";
   }
 }
 
@@ -34,7 +34,7 @@ myList.appendChild(newListItem);`;
       resultElement.style.color = "#66c2a5";
   } else {
       resultElement.textContent = "Try again!";
-      resultElement.style.color = "red";
+      resultElement.style.color = "#e31a1c";
   }
 }
 
@@ -54,7 +54,7 @@ submitButton.addEventListener('click', function() {
       resultElement.style.color = "#66c2a5";
   } else {
       resultElement.textContent = "Try again!";
-      resultElement.style.color = "red";
+      resultElement.style.color = "#e31a1c";
   }
 }
 
@@ -89,5 +89,5 @@ submitButton.addEventListener('click', function() {
       default:
           resultElement.textContent = "Invalid quiz ID.";
   }
-  resultElement.style.color = "#3288bd";
+  resultElement.style.color = "#1f78b4";
 }
