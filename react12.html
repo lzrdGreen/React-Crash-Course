@@ -8,6 +8,7 @@
   <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/styled-components/dist/styled-components.min.js"></script>
+  
   <!--Add Babel to transpile JSX-->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <link rel="stylesheet" href="style.css">
@@ -83,6 +84,9 @@
     <p id="lesson12-result"></p>
   </div>
   <div id="demo-container"></div>
+  <p>If you try Demo, pay attention to one more line added in the <code>head</head></code> section of this page.</p>
+  <p><strong>CSS Modules Example:</strong> Inline styles mimic the separation of CSS Modules. While real CSS Modules require a <code>.module.css</code> file, this inline approach keeps everything self-contained.</p>
+  <p><strong>Styled-components Example:</strong> Requires the <code>styled-components</code> library. This example showcases dynamic styles using JavaScript template literals.</p>
   
   <button id="back-to-main" onclick="location.href='index.html'">Back to Main</button>
 </main>
@@ -92,67 +96,68 @@
  
   <p>Dream it. Build it.</p>
 </footer>
+
 <script type="text/babel">
+  // Demo for Lesson 12: Styling in React
   function demoLesson12() {
-    const demoContainer = document.getElementById("demo-container");
+    console.log('Demo for Lesson 12: Styling Navigation Bar');
 
-    // Clear any previous demo content
-    demoContainer.innerHTML = "";
-
-    // CSS Module simulation
-    const styles = {
-        nav: "nav-module",
-        link: "link-module",
+    // Example using CSS Modules
+    const cssModuleStyles = {
+      navbar: {
+        display: 'flex',
+        justifyContent: 'space-around',
+        padding: '10px',
+        backgroundColor: '#33a02c',
+        color: 'white',
+        listStyle: 'none',
+      },
+      navItem: {
+        textDecoration: 'none',
+        color: 'white',
+      },
     };
 
-    // Dynamically inject CSS for demonstration purposes
-    const styleTag = document.createElement("style");
-    styleTag.innerHTML = `
-        .${styles.nav} {
-            background-color: #282c34;
-            padding: 10px;
-            display: flex;
-            justify-content: space-around;
-        }
-        .${styles.link} {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        .${styles.link}:hover {
-            text-decoration: underline;
-        }
-    `;
-    document.head.appendChild(styleTag);
+    // Styled-components example
+    const styled = window.styled;
 
-    // Define the styled-components styles
-    const StyledButton = styled.button`
-        background-color: #61dafb;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        border-radius: 5px;
-        cursor: pointer;
-        color: #282c34;
+    const StyledNavbar = styled.nav`
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+      background-color: #b2df8a;
     `;
 
-    const NavigationBar = () => {
-        return (
-            <div>
-                <nav className={styles.nav}>
-                    <a href="#home" className={styles.link}>Home</a>
-                    <a href="#about" className={styles.link}>About</a>
-                    <a href="#contact" className={styles.link}>Contact</a>
-                </nav>
-                <div style={{ marginTop: "20px", textAlign: "center" }}>
-                    <StyledButton>Click Me!</StyledButton>
-                </div>
-            </div>
-        );
-    };
+    const StyledNavItem = styled.a`
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      &:hover {
+        text-decoration: underline;
+      }
+    `;
 
-    // Render the React component into the demo container
-    ReactDOM.render(<NavigationBar />, demoContainer);
+    function NavigationBar() {
+      return (
+        <div>
+          <h4>CSS Modules Example</h4>
+          <ul style={cssModuleStyles.navbar}>
+            <li><a style={cssModuleStyles.navItem} href="#home">Home</a></li>
+            <li><a style={cssModuleStyles.navItem} href="#about">About</a></li>
+            <li><a style={cssModuleStyles.navItem} href="#contact">Contact</a></li>
+          </ul>
+
+          <h4>Styled-components Example</h4>
+          <StyledNavbar>
+            <StyledNavItem href="#home">Home</StyledNavItem>
+            <StyledNavItem href="#about">About</StyledNavItem>
+            <StyledNavItem href="#contact">Contact</StyledNavItem>
+          </StyledNavbar>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<NavigationBar />, document.getElementById('demo-container'));
   }
 </script>
 <script src="r12.js"></script>

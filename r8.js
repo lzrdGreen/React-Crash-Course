@@ -123,7 +123,7 @@ function checkLesson8() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p style={{ color: "#e31a1c" }}>{error}</p>}
         <button type="submit">Signup</button>
       </form>
     );
